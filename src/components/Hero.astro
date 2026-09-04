@@ -1,0 +1,11 @@
+---
+import InfinitySignature from './InfinitySignature.astro';
+import type { Locale } from '../lib/i18n';
+interface Props { locale: Locale; headline: string; summary: string }
+const { locale, headline, summary } = Astro.props;
+---
+<section class="hero" aria-labelledby="hero-title">
+  <InfinitySignature labelledBy="hero-title" />
+  <h1 id="hero-title" class="gradient-text" data-locale={locale}>{headline}</h1>
+  <p>{summary}</p>
+</section>

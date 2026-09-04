@@ -1,0 +1,8 @@
+---
+---
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const apply = () => document.documentElement.dataset.motion = reduce.matches ? 'reduce' : 'allow';
+  apply();
+  reduce.addEventListener('change', apply);
+</script>

@@ -1,0 +1,8 @@
+---
+interface Props { labelledBy: string }
+const { labelledBy } = Astro.props;
+---
+<svg class="infinity-mark" viewBox="0 0 100 50" aria-labelledby={labelledBy} role="img">
+  <title>∞ Firma de continuidad entre carreras</title>
+  <path d="M5 25 C 5 10, 25 10, 25 25 C 25 40, 5 40, 5 25 M25 25 C 25 10, 50 10, 50 25 C 50 40, 25 40, 25 25 M50 25 C 50 10, 75 10, 75 25 C 75 40, 50 40, 50 25 M75 25 C 75 10, 95 10, 95 25 C 95 40, 75 40, 75 25" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+</svg>
