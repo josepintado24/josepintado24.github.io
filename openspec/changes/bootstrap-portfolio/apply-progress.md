@@ -137,3 +137,13 @@ No other assets shipped or pending in this slice.
 - Local build environment uses Node 22.23.2 and pnpm 10.13.1; CI runner is `ubuntu-latest` (Node 20 default for Astro). No lockfile drift expected.
 - Size exception scope: `max_changed_lines: 4500` is a one-shot maintainer authorization for THIS Slice 1 attempt only. Future slices must still target the 400-line `review_budget_lines` baseline; a similar lockfile-dominated change should be split before reaching this magnitude.
 - This attempt produced no commit, push, PR, or Pages workflow run. The `size:exception` is bounded to local evidence and `pnpm build` output; live deployment verification is explicitly out of scope per the bounded remediation contract.
+
+### Delivery log (chronological)
+
+- `ce60ea8` baseline (planning only).
+- `22dc04e` direct-to-`main` governance bootstrap: `chore: add feature issue form`. Created labels `type:feature` and `status:approved` on the target host.
+- Tracking issue #1 opened (https://github.com/josepintado24/josepintado24.github.io/issues/1) with `type:feature` and `status:approved`.
+- Branch `feat/portfolio-slice-1` created from `main`.
+- `cf5d2c0` Slice 1 feature commit on branch: `feat(portfolio): bootstrap bilingual Astro foundation (Slice 1)`. Pushed (with `gh auth refresh --scopes "gist,read:org,repo,workflow"` after the OAuth scope gate on the workflow file surfaced).
+- PR #2 opened: https://github.com/josepintado24/josepintado24.github.io/pull/2 — body contains `Closes #1`, exactly one `type:feature` label, and read-back confirmed identity, title, body, state, and labels.
+- Task 1.16 remains unchecked: merge, Pages workflow run, and live `/es/` verification are still pending and require a separate maintainer decision.
