@@ -1,0 +1,3 @@
+# Source of truth for main specs.
+# Each domain lives in `openspec/specs/<domain>/spec.md`.
+# This directory is intentionally empty until a domain spec is produced.

@@ -1,0 +1,82 @@
+# openspec/changes/bootstrap-portfolio/state.yaml
+# gentle-ai.sdd-preproposal/v1
+# Generated 2026-09-04 by sdd-research sub-agent.
+
+schema: gentle-ai.sdd-preproposal/v1
+artifact_store: openspec
+change: bootstrap-portfolio
+
+revision: 1
+
+exploration:
+  status: complete
+  reference: openspec/changes/bootstrap-portfolio/exploration.md
+  outcomes:
+    - "10 product decisions confirmed (custom domain, languages, build/deploy, assets, analytics, contact, resume, animation, pending-asset semantics, delivery shape)"
+
+research:
+  status: done
+  outcome: done
+  artifact: openspec/changes/bootstrap-portfolio/research.md
+  questions:
+    - id: Q1
+      text: "Current Astro static output and official GitHub Pages deployment workflow"
+      supported: true
+    - id: Q2
+      text: "Current Astro i18n routing for /es/ and /en/, including default locale behavior"
+      supported: true
+    - id: Q3
+      text: "Current Astro content collection APIs suitable for localized case studies and credentials"
+      supported: true
+    - id: Q4
+      text: "GitHub Pages user-site constraints relevant to josepintado24.github.io"
+      supported: true
+    - id: Q5
+      text: "Accessibility guidance for prefers-reduced-motion, gradient text contrast/fallback, and language switching (prefer W3C/WCAG sources)"
+      supported: true
+  sources_total: 12
+  sources_w3c_or_wcag: 5
+  contradictions: none_blocking
+  freshness: fresh
+
+admission:
+  capability: gentle-ai.sdd-research-capability/v1
+  grants:
+    - documentation
+    - open-web
+  tools_used:
+    - webfetch
+    - context7_query-docs
+    - context7_resolve-library-id
+  rejected:
+    - bash
+    - generic_mcp
+    - persistence
+    - filenames
+  storage: persistent
+
+decisions:
+  custom_domain: confirmed
+  languages: confirmed
+  build_deploy: confirmed
+  asset_hosting: confirmed
+  analytics: confirmed
+  contact: confirmed
+  resume: confirmed
+  animation: confirmed
+  pending_asset: confirmed
+  delivery_shape: confirmed
+
+references:
+  openspec:
+    - openspec/changes/bootstrap-portfolio/exploration.md
+    - openspec/changes/bootstrap-portfolio/research.md
+  engram: []
+
+proposal_ready: true
+next_phase: sdd-propose
+
+notes:
+  - "All five research questions are answered by primary, authoritative sources."
+  - "Consequences for proposal and design are enumerated in research.md sections 'Consequence for proposal / design'."
+  - "Config.yaml re-evaluation (Astro project marker, build pipeline, delivery strategy, verify commands) is the proposal phase's responsibility per exploration.md."
