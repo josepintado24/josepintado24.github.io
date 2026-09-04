@@ -1,0 +1,47 @@
+name: Feature
+description: Define approved feature work for this personal portfolio.
+title: "[Feature]: "
+labels:
+  - "type:feature"
+body:
+  - type: textarea
+    id: problem-or-opportunity
+    attributes:
+      label: Problem or opportunity
+      description: Describe the need, opportunity, or user value.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-outcome
+    attributes:
+      label: Proposed outcome
+      description: Describe the intended result without prescribing unnecessary implementation details.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: List the observable conditions that must be met.
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification-plan
+    attributes:
+      label: Verification plan
+      description: Explain how the acceptance criteria will be verified.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I understand the scope of this feature work.
+          required: true
+        - label: I confirm that this issue contains no secrets or private data.
+          required: true
