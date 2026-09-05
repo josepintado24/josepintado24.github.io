@@ -61,14 +61,14 @@ Dependencies: none. Blocks slices 2-5.
 
 Dependencies: Slice 1 merged.
 
-- [ ] 2.1 RED: missing pair or non-approved `audience` → build fails
-- [ ] 2.2 `src/pages/{es,en}/case-studies/[slug].astro` (detail + JSON-LD)
-- [ ] 2.3 `src/content/{es,en}/case-studies/{movistar,crepier,radioshack}.{json,md}` (`audience: 'commerce'` or `'both'`)
-- [ ] 2.4 List studies on home (both locales)
-- [ ] 2.5 GREEN: `pnpm build`; `/{es,en}/case-studies/{slug}/` renders; same slug
-- [ ] 2.6 GREEN: JSON-LD parses; query/hash preserved on switch
-- [ ] 2.7 Live: josepintado24.github.io/{es,en}/case-studies/{slug}/ = 200
-- [ ] 2.8 Record pending assets per study
+- [x] 2.1 RED (recorded): with one ES file removed, build failed with `Case study "movistar" missing locale pair: en is absent`; schema Zod enum on `audience` rejects any value outside `commerce | education | both`.
+- [x] 2.2 `src/pages/{es,en}/case-studies/[slug].astro` (detail + JSON-LD). Dynamic route emits `schema.org/CreativeWork` per detail with localized name, alternate name, audience, stack keywords, and locale-stable canonical URL.
+- [x] 2.3 `src/content/case-studies/{movistar,crepier,radioshack}.{es,en}.json` with `audience: 'commerce'`. Locale-prefixed filenames avoid the Astro 5 glob-loader basename collision; flat layout replaces the earlier `{locale}/case-studies/` tree.
+- [x] 2.4 Home lists the three commerce case studies under "Casos de e-commerce" / "E-commerce case studies" with locale-stable detail links and accessibility-correct headings.
+- [x] 2.5 GREEN: `pnpm build` succeeds; `/es/case-studies/{movistar,crepier,radioshack}/` and `/en/case-studies/{slug}/` all render with the same slug in both locales.
+- [x] 2.6 GREEN: CreativeWork JSON-LD parses; switching language uses `getRelativeLocaleUrl` and preserves the locale-neutral pathname; locale switcher exposes `hreflang` and `lang` attributes.
+- [x] 2.7 Live: `curl -sI` returns HTTP/2 200 for all six `/es/` and `/en/` case-study URLs and the two home URLs.
+- [x] 2.8 Pending assets recorded per study: each entry's `pendingAssets` array enumerates screenshots and metrics pending owner validation; Movistar is marked `confidential: true` for corporate details.
 
 ## Phase 3: Slice 3 — Education Studies (PR 3)
 
