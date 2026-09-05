@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>CV — José Luis Pintado Vásquez</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --muted: #4b5563;
+  --cyan: #0e7490;
+  --blue: #1d4ed8;
+  --amber: #b45309;
+  --line: #e5e7eb;
+  --gradient: linear-gradient(90deg, var(--cyan), var(--blue), var(--amber));
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10.5pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.cv { max-width: 18.5cm; margin: 0 auto; padding: 1.2cm 1.4cm; }
+section.cv-locale { page-break-after: always; }
+section.cv-locale:last-of-type { page-break-after: auto; }
+h1.name { font-size: 18pt; line-height: 1.15; margin: 0 0 .15cm 0; letter-spacing: -.005em; color: var(--fg); font-weight: 700; word-wrap: break-word; overflow-wrap: break-word; }
+h1.name .grad { color: var(--blue); }
+.tagline { font-size: 10pt; color: var(--muted); margin: 0 0 .4cm 0; }
+.contact-line { font-size: 9.5pt; color: var(--fg); margin: 0 0 .5cm 0; }
+.contact-line span + span::before { content: " · "; color: var(--muted); }
+h2.section { font-size: 11pt; text-transform: uppercase; letter-spacing: .08em;
+  margin: .55cm 0 .25cm 0; padding-bottom: .12cm;
+  border-bottom: 1px solid transparent;
+  border-image: var(--gradient) 1; }
+h2.section.plain { border-image: none; border-bottom: 1px solid var(--line); }
+h3.role { font-size: 11pt; margin: .35cm 0 .1cm 0; }
+.role-meta { font-size: 9.5pt; color: var(--muted); margin: 0 0 .15cm 0; font-style: italic; }
+p { margin: .15cm 0; }
+ul { margin: .15cm 0 .25cm 0; padding-left: 1.1em; }
+ul li { margin-bottom: .1cm; }
+.summary { margin: 0 0 .35cm 0; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .25cm .6cm; }
+.skills-grid h4 { font-size: 9.5pt; text-transform: uppercase; letter-spacing: .05em; color: var(--blue);
+  margin: .2cm 0 .1cm 0; }
+.skills-grid ul { padding-left: 1em; margin: 0; font-size: 9.5pt; }
+.skills-grid li { margin-bottom: 0; }
+.certs-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+.certs-table th, .certs-table td { text-align: left; padding: .08cm .15cm; border-bottom: 1px solid var(--line); vertical-align: top; }
+.certs-table th { color: var(--muted); font-weight: 600; width: 1.4cm; }
+.freelance { background: #f8fafc; border-left: 3px solid var(--blue);
+  padding: .25cm .35cm; margin: .25cm 0; font-size: 9.8pt; }
+.freelance ul { margin: .1cm 0 0 0; }
+a { color: var(--blue); text-decoration: none; }
+.tag-doc { display: inline-block; font-size: 8pt; color: var(--muted);
+  padding: 1pt 6pt; border: 1px solid var(--line); border-radius: 99px; margin-right: 4pt; }
+.lang-badge { display: inline-block; font-size: 8pt; padding: 1pt 8pt; border-radius: 99px;
+  background: var(--fg); color: #fff; letter-spacing: .05em; }
+@page { size: A4; margin: 0; }
+@media print {
+  body { background: #fff; }
+  .cv { padding: 1.2cm 1.4cm; }
+}
+</style>
+</head>
+<body>
+<main class="cv">
+
+<!-- ============================== ESPAÑOL ============================== -->
+<section class="cv-locale" lang="es">
+<h1 class="name"><span class="grad">José Luis Pintado Vásquez</span></h1>
+<p class="tagline">Desarrollador Full Stack · Docente de TI · Adobe Commerce / Magento 2</p>
+<p class="contact-line">
+<span>San Juan de Lurigancho, Lima, Perú</span>
+<span>+51 938 150 845</span>
+<span>josepintado24@gmail.com</span>
+<span>linkedin.com/in/josepintado24</span>
+<span>jlpintado.com</span>
+</p>
+
+<h2 class="section">Perfil profesional</h2>
+<p class="summary">Desarrollador de software y docente de TI con más de 10 años de experiencia en soluciones web, aplicaciones empresariales y comercio electrónico. Especialista en Adobe Commerce / Magento 2, con experiencia en PHP, Laravel, Java, React, Angular y ecosistemas modernos de JavaScript / TypeScript, incluyendo Next.js. Integro interfaces, APIs REST, bases de datos, pasarelas de pago, analítica y despliegues, aplicando SOLID, Clean Code, accesibilidad y metodologías ágiles. Disponible para proyectos freelance remotos y trabajo por entregables.</p>
+
+<h2 class="section">Competencias técnicas</h2>
+<div class="skills-grid">
+<div>
+<h4>Front-end</h4>
+<ul>
+<li>JavaScript, TypeScript</li>
+<li>React, React Hooks, Next.js</li>
+<li>Angular</li>
+<li>HTML5, CSS3, LESS, Bootstrap</li>
+<li>Knockout.js, RequireJS</li>
+<li>Diseño responsive y accesibilidad</li>
+</ul>
+</div>
+<div>
+<h4>Back-end y APIs</h4>
+<ul>
+<li>Java, PHP 7/8, Laravel, Composer</li>
+<li>APIs REST, GraphQL</li>
+<li>Integración con servicios externos, pagos y envíos</li>
+</ul>
+</div>
+<div>
+<h4>E-commerce</h4>
+<ul>
+<li>Adobe Commerce / Magento 2</li>
+<li>Módulos, Observer, Plugin, DI, UI Components</li>
+<li>Layout XML, widgets, ACL, i18n, multistore</li>
+<li>Theming y PWA Studio</li>
+</ul>
+</div>
+<div>
+<h4>Datos y búsqueda</h4>
+<ul>
+<li>MySQL, MariaDB</li>
+<li>Modelado de datos</li>
+<li>Elasticsearch, OpenSearch</li>
+</ul>
+</div>
+<div>
+<h4>DevOps y calidad</h4>
+<ul>
+<li>Git, GitHub, GitLab</li>
+<li>Docker, Warden, Nginx, Apache</li>
+<li>CI/CD básico, testing, code review</li>
+<li>SOLID y Clean Code</li>
+</ul>
+</div>
+<div>
+<h4>Rendimiento y analítica</h4>
+<ul>
+<li>Redis, Varnish, optimización de assets</li>
+<li>Google Tag Manager, Google Analytics 4</li>
+<li>Adobe Analytics, dataLayer</li>
+</ul>
+</div>
+</div>
+
+<h2 class="section">Experiencia profesional</h2>
+
+<h3 class="role">NTT DATA Perú — Engineer, Front End E-commerce</h3>
+<p class="role-meta">mar. 2026 – ago. 2026 · Lima</p>
+<ul>
+<li>Desarrollé mejoras de UI/UX en catálogo y checkout de plataformas e-commerce, incluyendo validaciones, mensajes contextuales y manejo de errores.</li>
+<li>Integré y ajusté métodos de pago y envío; normalicé eventos para analítica y optimicé la interacción de los principales flujos de compra.</li>
+<li>Trabajé con Magento 2, JavaScript, PHP, servicios web, Git y prácticas ágiles de entrega y revisión de código.</li>
+</ul>
+
+<h3 class="role">Stefanini IT Solutions — Lead Engineer / Full Stack E-commerce</h3>
+<p class="role-meta">ago. 2023 – mar. 2026 · Lima</p>
+<ul>
+<li>Implementé componentes y personalizaciones de Magento 2 para catálogo, checkout, pagos, envíos y tiendas multistore, usando PHP, JavaScript, Knockout.js, RequireJS y LESS.</li>
+<li>Participé en soluciones web y servicios con Laravel / PHP y en componentes de interfaz con React y Angular, integrados mediante APIs REST.</li>
+<li>Instalé y configuré módulos Manadev, Mageplaza, Amasty, Mirasvit y Firebear para navegación, SEO, analítica y operación comercial.</li>
+<li>Realicé estimaciones, PR, code reviews, documentación técnica y seguimiento de entregas bajo Scrum / Kanban.</li>
+</ul>
+
+<h3 class="role">NTT DATA Perú — Junior Engineer, Magento Front End</h3>
+<p class="role-meta">dic. 2021 – ago. 2023 · Lima</p>
+<ul>
+<li>Personalicé catálogo, atributos, filtros, precios y variantes con Magento 2 y Knockout.js, mejorando rendimiento, usabilidad y conversión.</li>
+<li>Implementé seguimiento de usuarios y eventos con GTM / GA, capas de datos y KPIs de comercio electrónico.</li>
+<li>Optimicé vistas de producto y listados, e integré cambios front-end con servicios y lógica del back-end.</li>
+</ul>
+
+<h3 class="role">Freelance — Desarrollador Web / Magento y E-commerce</h3>
+<p class="role-meta">feb. 2020 – ago. 2025 · Remoto</p>
+<ul>
+<li><strong>Desly:</strong> menús administrables, personalización de header, landing pages y secciones editables del checkout.</li>
+<li><strong>Crepier Perú / Ecuador:</strong> landing pages, multistore, bundles, componentes e implementación de selector de país entre tiendas.</li>
+<li><strong>RadioShack:</strong> checkout personalizado, validaciones, optimización de carga y tracking de eventos.</li>
+</ul>
+
+<h3 class="role">CEPRE-UNI — Programador de Aplicaciones</h3>
+<p class="role-meta">dic. 2020 – dic. 2021 · Lima</p>
+<ul>
+<li>Desarrollé y desplegué cepreuni.net.pe, con interfaces accesibles, gestión de contenidos y actualización autónoma por el personal institucional.</li>
+<li>Implementé soluciones web con PHP, JavaScript y bases de datos para mejorar procesos y difusión de información académica.</li>
+</ul>
+
+<h3 class="role">CEPRE-UNI — Analista de Soporte TI</h3>
+<p class="role-meta">mar. 2013 – nov. 2020 · Lima</p>
+<ul>
+<li>Gestioné inventario informático con GLPI, capacit&eacute; al personal en sistemas internos, MathType y ChemBioFinder, y desarrollé una aplicación web para biblioteca.</li>
+</ul>
+
+<h2 class="section">Experiencia docente</h2>
+
+<h3 class="role">Zegel — Docente, Escuela de Diseño</h3>
+<p class="role-meta">abr. 2026 – actualidad · Lima</p>
+<ul>
+<li>Dictado de cursos de desarrollo web, interfaces digitales y tecnologías aplicadas al diseño.</li>
+<li>Planificación de sesiones por proyectos sobre estructura web, estilos, componentes, responsividad, interacción, wireframes y prototipos funcionales.</li>
+</ul>
+
+<h3 class="role">CIBERTEC — Docente, Escuela de Tecnologías de la Información</h3>
+<p class="role-meta">oct. 2023 – actualidad · Lima</p>
+<ul>
+<li>Dictado de Introducción a la Algoritmia, Desarrollo de Entornos Web, Arquitectura de Entornos Web, Programación Orientada a Objetos I y II, Lenguaje de Programación I y II, Desarrollo de Aplicaciones Web I y II, Desarrollo de Servicios Web I y II, Bases de Datos, Excel y Tecnologías de la Información.</li>
+<li>Enseñanza práctica de Java, Python, HTML, CSS, JavaScript, React, APIs REST, Git, testing, modelado de datos, interfaces y metodologías ágiles.</li>
+<li>Diseño de evaluaciones, acompañamiento de proyectos, sustentaciones y retroalimentación; reconocido entre los docentes mejor calificados en encuestas estudiantiles.</li>
+</ul>
+
+<h2 class="section">Formación académica</h2>
+<p><strong>Universidad Peruana de Ciencias Aplicadas (UPC)</strong> — Ingeniería de Sistemas · en curso · 2026 – actualidad</p>
+<p><strong>Universidad ESAN — PEE</strong> — Certificado en Desarrollo Ejecutivo: Arquitectura de Soluciones con TI, E-Commerce y Analítica Web · 2025</p>
+<p><strong>Instituto de Educación Superior Privado CIBERTEC</strong> — Administración y Sistemas · titulado · 2020</p>
+
+<h2 class="section">Cursos, diplomados, congresos y certificaciones</h2>
+<table class="certs-table">
+<tr><th>2026</th><td>TypeScript Configuration (Codecademy) · Python Essentials 1 (Cisco) · Implementación de tecnologías educativas (CIBERTEC) · Learning to Teach Online (UNSW Sydney / Coursera) · AI Education for Teachers (Macquarie &amp; IBM / Coursera) · GenAI Academy Yellow Belt L2 · API REST con JavaScript (Platzi) · Congreso de Docentes UPC</td></tr>
+<tr><th>2025</th><td>Certificado en Desarrollo Ejecutivo — 48 sesiones (ESAN) · Arquitectura de Soluciones con TI — 24 h (ESAN) · E-Commerce — 24 h (ESAN) · Analítica Web — 24 h (ESAN) · Fundamentos de Bases de Datos (Platzi) · Manipulación del DOM (Platzi) · Curso de Angular (Platzi) · Congreso de Docentes UPC</td></tr>
+<tr><th>2024</th><td>Diplomado Especialista en Desarrollo Frontend con Angular y React — 150 h (CETI)</td></tr>
+<tr><th>2022</th><td>Principios SOLID y Clean Code (Udemy)</td></tr>
+<tr><th>2021</th><td>Diplomado Especialista en Desarrollo de Aplicaciones con PHP 7.0, Laravel y MySQL — 100 h (CETI) · Diplomado Especialista en Software de Facturación Electrónica con PHP — 100 h (CETI)</td></tr>
+<tr><th>2018</th><td>Programación en Java — 24 h (InfoPUC, Pontificia Universidad Católica del Perú)</td></tr>
+</table>
+
+<h2 class="section">Enfoque de servicio freelance</h2>
+<div class="freelance">
+<ul>
+<li>Desarrollo y mantenimiento de aplicaciones web full stack, portales y soluciones e-commerce.</li>
+<li>Construcción de interfaces con React, Next.js o Angular e integración con APIs Java / PHP / Laravel.</li>
+<li>Implementación, personalización y optimización de Adobe Commerce / Magento 2.</li>
+<li>Trabajo remoto por alcance y entregables, documentación técnica, control de versiones y comunicación continua.</li>
+</ul>
+</div>
+
+<p class="tagline" style="margin-top:.6cm"><span class="lang-badge">ES</span> &nbsp; Versión en español · continúa en inglés</p>
+</section>
+
+<!-- ============================== ENGLISH ============================== -->
+<section class="cv-locale" lang="en">
+<h1 class="name"><span class="grad">José Luis Pintado Vásquez</span></h1>
+<p class="tagline">Full Stack Developer · IT Instructor · Adobe Commerce / Magento 2</p>
+<p class="contact-line">
+<span>San Juan de Lurigancho, Lima, Peru</span>
+<span>+51 938 150 845</span>
+<span>josepintado24@gmail.com</span>
+<span>linkedin.com/in/josepintado24</span>
+<span>jlpintado.com</span>
+</p>
+
+<h2 class="section">Professional profile</h2>
+<p class="summary">Software developer and IT instructor with over 10 years of experience in web solutions, enterprise applications, and e-commerce. Specialist in Adobe Commerce / Magento 2 with hands-on experience in PHP, Laravel, Java, React, Angular, and modern JavaScript / TypeScript ecosystems including Next.js. I integrate interfaces, REST APIs, databases, payment gateways, analytics, and deployments while applying SOLID, Clean Code, accessibility, and agile methodologies. Available for remote freelance projects and deliverable-based engagements.</p>
+
+<h2 class="section">Technical competencies</h2>
+<div class="skills-grid">
+<div>
+<h4>Front-end</h4>
+<ul>
+<li>JavaScript, TypeScript</li>
+<li>React, React Hooks, Next.js</li>
+<li>Angular</li>
+<li>HTML5, CSS3, LESS, Bootstrap</li>
+<li>Knockout.js, RequireJS</li>
+<li>Responsive design and accessibility</li>
+</ul>
+</div>
+<div>
+<h4>Back-end &amp; APIs</h4>
+<ul>
+<li>Java, PHP 7/8, Laravel, Composer</li>
+<li>REST APIs, GraphQL</li>
+<li>Integration with external services, payments, and shipping</li>
+</ul>
+</div>
+<div>
+<h4>E-commerce</h4>
+<ul>
+<li>Adobe Commerce / Magento 2</li>
+<li>Modules, Observer, Plugin, DI, UI Components</li>
+<li>Layout XML, widgets, ACL, i18n, multistore</li>
+<li>Theming and PWA Studio</li>
+</ul>
+</div>
+<div>
+<h4>Data &amp; search</h4>
+<ul>
+<li>MySQL, MariaDB</li>
+<li>Data modeling</li>
+<li>Elasticsearch, OpenSearch</li>
+</ul>
+</div>
+<div>
+<h4>DevOps &amp; quality</h4>
+<ul>
+<li>Git, GitHub, GitLab</li>
+<li>Docker, Warden, Nginx, Apache</li>
+<li>Basic CI/CD, testing, code review</li>
+<li>SOLID and Clean Code</li>
+</ul>
+</div>
+<div>
+<h4>Performance &amp; analytics</h4>
+<ul>
+<li>Redis, Varnish, asset optimization</li>
+<li>Google Tag Manager, Google Analytics 4</li>
+<li>Adobe Analytics, dataLayer</li>
+</ul>
+</div>
+</div>
+
+<h2 class="section">Professional experience</h2>
+
+<h3 class="role">NTT DATA Peru — Engineer, Front End E-commerce</h3>
+<p class="role-meta">Mar. 2026 – Aug. 2026 · Lima</p>
+<ul>
+<li>Delivered UI/UX improvements across catalog and checkout on e-commerce platforms, including validation, contextual messaging, and error handling.</li>
+<li>Integrated and tuned payment and shipping methods; standardized analytics events and optimized the main purchase flows.</li>
+<li>Worked with Magento 2, JavaScript, PHP, web services, Git, and agile delivery and code-review practices.</li>
+</ul>
+
+<h3 class="role">Stefanini IT Solutions — Lead Engineer / Full Stack E-commerce</h3>
+<p class="role-meta">Aug. 2023 – Mar. 2026 · Lima</p>
+<ul>
+<li>Implemented Magento 2 components and customizations for catalog, checkout, payments, shipping, and multistore setups using PHP, JavaScript, Knockout.js, RequireJS, and LESS.</li>
+<li>Contributed to web solutions and services with Laravel / PHP and to UI components with React and Angular, integrated through REST APIs.</li>
+<li>Installed and configured Manadev, Mageplaza, Amasty, Mirasvit, and Firebear modules for navigation, SEO, analytics, and commercial operations.</li>
+<li>Owned estimates, pull requests, code reviews, technical documentation, and delivery tracking under Scrum / Kanban.</li>
+</ul>
+
+<h3 class="role">NTT DATA Peru — Junior Engineer, Magento Front End</h3>
+<p class="role-meta">Dec. 2021 – Aug. 2023 · Lima</p>
+<ul>
+<li>Customized catalog, attributes, filters, pricing, and variants with Magento 2 and Knockout.js, improving performance, usability, and conversion.</li>
+<li>Implemented user and event tracking with GTM / GA, data layers, and e-commerce KPIs.</li>
+<li>Optimized product and listing views, and integrated front-end changes with back-end services and logic.</li>
+</ul>
+
+<h3 class="role">Freelance — Web Developer / Magento &amp; E-commerce</h3>
+<p class="role-meta">Feb. 2020 – Aug. 2025 · Remote</p>
+<ul>
+<li><strong>Desly:</strong> manageable menus, header customization, landing pages, and editable checkout sections.</li>
+<li><strong>Crepier Peru / Ecuador:</strong> landing pages, multistore, bundles, components, and a country selector across stores.</li>
+<li><strong>RadioShack:</strong> custom checkout, validation, load optimization, and event tracking.</li>
+</ul>
+
+<h3 class="role">CEPRE-UNI — Application Developer</h3>
+<p class="role-meta">Dec. 2020 – Dec. 2021 · Lima</p>
+<ul>
+<li>Built and deployed cepreuni.net.pe with accessible interfaces, content management, and self-service updates by institutional staff.</li>
+<li>Implemented web solutions with PHP, JavaScript, and databases to streamline processes and academic communications.</li>
+</ul>
+
+<h3 class="role">CEPRE-UNI — IT Support Analyst</h3>
+<p class="role-meta">Mar. 2013 – Nov. 2020 · Lima</p>
+<ul>
+<li>Managed IT inventory with GLPI, trained staff on internal systems, MathType, and ChemBioFinder, and developed a web application for the library.</li>
+</ul>
+
+<h2 class="section">Teaching experience</h2>
+
+<h3 class="role">Zegel — Instructor, School of Design</h3>
+<p class="role-meta">Apr. 2026 – present · Lima</p>
+<ul>
+<li>Teaching web development, digital interfaces, and design-applied technology courses.</li>
+<li>Project-based session planning covering web structure, styling, components, responsiveness, interaction, wireframes, and functional prototypes.</li>
+</ul>
+
+<h3 class="role">CIBERTEC — Instructor, School of Information Technology</h3>
+<p class="role-meta">Oct. 2023 – present · Lima</p>
+<ul>
+<li>Taught Intro to Algorithms, Web Environments Development, Web Environments Architecture, Object-Oriented Programming I &amp; II, Programming Language I &amp; II, Web Application Development I &amp; II, Web Services Development I &amp; II, Databases, Excel, and Information Technologies.</li>
+<li>Hands-on instruction in Java, Python, HTML, CSS, JavaScript, React, REST APIs, Git, testing, data modeling, interfaces, and agile methodologies.</li>
+<li>Designed assessments, mentored projects, led defenses, and provided feedback; recognized among top-rated instructors in student surveys.</li>
+</ul>
+
+<h2 class="section">Education</h2>
+<p><strong>Universidad Peruana de Ciencias Aplicadas (UPC)</strong> — Systems Engineering · in progress · 2026 – present</p>
+<p><strong>Universidad ESAN — PEE</strong> — Executive Development Certificate: IT Solutions Architecture, E-Commerce, and Web Analytics · 2025</p>
+<p><strong>Instituto de Educación Superior Privado CIBERTEC</strong> — Administration and Systems · graduated · 2020</p>
+
+<h2 class="section">Courses, diplomas, conferences, and certifications</h2>
+<table class="certs-table">
+<tr><th>2026</th><td>TypeScript Configuration (Codecademy) · Python Essentials 1 (Cisco) · Implementing Educational Technologies (CIBERTEC) · Learning to Teach Online (UNSW Sydney / Coursera) · AI Education for Teachers (Macquarie &amp; IBM / Coursera) · GenAI Academy Yellow Belt L2 · REST API with JavaScript (Platzi) · UPC Instructors Conference</td></tr>
+<tr><th>2025</th><td>Executive Development Certificate — 48 sessions (ESAN) · IT Solutions Architecture — 24 h (ESAN) · E-Commerce — 24 h (ESAN) · Web Analytics — 24 h (ESAN) · Database Fundamentals (Platzi) · DOM Manipulation (Platzi) · Angular Course (Platzi) · UPC Instructors Conference</td></tr>
+<tr><th>2024</th><td>Diploma in Frontend Development with Angular and React — 150 h (CETI)</td></tr>
+<tr><th>2022</th><td>SOLID Principles and Clean Code (Udemy)</td></tr>
+<tr><th>2021</th><td>Diploma in Application Development with PHP 7.0, Laravel, and MySQL — 100 h (CETI) · Diploma in Electronic Invoicing Software with PHP — 100 h (CETI)</td></tr>
+<tr><th>2018</th><td>Java Programming — 24 h (InfoPUC, Pontificia Universidad Católica del Perú)</td></tr>
+</table>
+
+<h2 class="section">Freelance service focus</h2>
+<div class="freelance">
+<ul>
+<li>End-to-end development and maintenance of full stack web apps, portals, and e-commerce solutions.</li>
+<li>Building interfaces with React, Next.js, or Angular and integrating them with Java / PHP / Laravel APIs.</li>
+<li>Implementation, customization, and optimization of Adobe Commerce / Magento 2.</li>
+<li>Remote, scope-based work with technical documentation, version control, and continuous communication.</li>
+</ul>
+</div>
+
+<p class="tagline" style="margin-top:.6cm"><span class="lang-badge">EN</span> &nbsp; English version · CV bilingual</p>
+</section>
+
+</main>
+</body>
+</html>

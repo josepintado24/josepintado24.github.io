@@ -15,6 +15,10 @@ main { max-width: 70ch; margin: 0 auto; padding: var(--space-8) var(--space-6); 
   .gradient-text { background-image: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
 }
 .pending-asset { border: 2px dashed var(--color-amber); padding: var(--space-4); border-radius: var(--radius-md); }
+.cv-download { display: grid; gap: 4px; padding: var(--space-4) var(--space-6); border: 2px solid var(--color-cyan); border-radius: var(--radius-md); background: linear-gradient(90deg, rgba(34,211,238,.08), rgba(59,130,246,.08), rgba(251,191,36,.08)); color: var(--color-fg); text-decoration: none; transition: transform .2s ease, border-color .2s ease; }
+.cv-download:hover { transform: translateY(-1px); border-color: var(--color-amber); }
+.cv-download__label { font-weight: 600; font-size: 1.05rem; }
+.cv-download__detail { color: var(--color-muted); font-size: 0.85rem; }
 .infinity-mark { width: 4rem; color: var(--color-cyan); }
 @media (prefers-reduced-motion: no-preference) {
   .infinity-mark { animation: drift 8s ease-in-out infinite alternate; }

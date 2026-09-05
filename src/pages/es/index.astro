@@ -10,6 +10,13 @@ const labels = { email: profile.email, phone: profile.phone, linkedin: 'LinkedIn
 ---
 <BaseLayout locale="es" title="José Luis Pintado Vásquez — Portafolio" description="Portafolio bilingüe" path="/">
   <Hero locale="es" headline={profile.headline} summary={profile.summary} />
-  <PendingAsset asset={pending('CV / Currículum', 'Pendiente: aún no se ha publicado el archivo /cv.pdf.')} />
+  {profile.cvPdf ? (
+    <a class="cv-download" href={profile.cvPdf} download type="application/pdf" rel="noopener">
+      <span class="cv-download__label">{profile.cvLabel ?? 'Descargar CV'}</span>
+      <span class="cv-download__detail">{profile.cvDetail ?? ''}</span>
+    </a>
+  ) : (
+    <PendingAsset asset={pending('CV / Currículum', 'Pendiente: aún no se ha publicado el archivo /cv.pdf.')} />
+  )}
   <Contact email={profile.email} phone={profile.phone} linkedin={profile.linkedin} labels={labels} />
 </BaseLayout>
