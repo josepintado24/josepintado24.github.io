@@ -1,0 +1,44 @@
+{
+  "locale": "es",
+  "slug": "crepier",
+  "title": "Crepier — Multistore Perú/Ecuador con selector de país y bundles",
+  "summary": "Implementación de un e-commerce Magento con tiendas separadas para Perú y Ecuador, un selector de país compartido, bundles y componentes de landing editables.",
+  "role": "Desarrollador Web / Magento y E-commerce (Freelance)",
+  "period": "feb. 2020 – ago. 2025",
+  "client": "Crepier (Perú y Ecuador)",
+  "audience": "commerce",
+  "context": "Cadena de retail con presencia en Perú y Ecuador que necesitaba operar dos tiendas con catálogos y precios independientes pero una experiencia de marca coherente. El reto era compartir navegación y componentes entre países sin duplicar el trabajo de mantenimiento y respetando las particularidades regulatorias y comerciales de cada mercado.",
+  "challenges": [
+    "Separar alcance comercial (catálogo, precios, moneda, impuestos) por país sin fragmentar el código.",
+    "Construir un selector de país visible y persistente que cambie la tienda sin perder contexto.",
+    "Modelar bundles que combinen productos variables según el mercado.",
+    "Permitir al equipo de marketing editar landing pages y secciones sin tocar el código."
+  ],
+  "approach": [
+    "Magento 2 con multistore: store view por país, theme base compartido y overrides por store.",
+    "Componente de selector de país que detecta el país del usuario y permite cambiar manualmente entre Perú y Ecuador.",
+    "Catálogo de bundles con reglas que combinan productos simples y configurables según el stock del mercado.",
+    "Bloques CMS y widgets administrables para que marketing gestione landings y secciones de home sin redeploys."
+  ],
+  "outcomes": [
+    "Dos tiendas activas (Perú y Ecuador) compartiendo navegación y componentes base.",
+    "Selector de país funcional entre las dos tiendas sin romper el carrito.",
+    "Bundles configurables con reglas por mercado.",
+    "Landing pages y secciones editables por el equipo interno sin tocar el repositorio.",
+    "Métricas finales de conversión y abandono pendientes de validación antes de publicarlas."
+  ],
+  "stack": [
+    "Magento 2",
+    "PHP",
+    "JavaScript (Knockout.js, RequireJS)",
+    "LESS",
+    "Bloques CMS y widgets",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Capturas del selector de país y de las landing pages editables",
+    "Métricas de conversión y abandono por país",
+    "Logo o identidad visual del cliente"
+  ],
+  "confidential": false
+}

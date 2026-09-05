@@ -1,0 +1,42 @@
+{
+  "locale": "en",
+  "slug": "movistar",
+  "title": "Movistar — E-commerce operations and checkout experience",
+  "summary": "Work on catalog, checkout, payments, and shipping on a Magento 2 multistore platform for Telefónica retail. Client-specific details and final metrics are pending confirmation from the owner before publication.",
+  "role": "Lead Engineer / Front End E-commerce (at NTT DATA / Stefanini)",
+  "period": "Aug. 2023 – Mar. 2026",
+  "client": "Movistar (Telefónica)",
+  "audience": "commerce",
+  "context": "Corporate engagement inside NTT DATA and Stefanini accounts focused on Magento 2 for Telefónica retail in Peru. The CV-reported scope covers catalog, checkout, payments, shipping, and multistore customizations, but the closed client-side details (logos, screenshots, and metrics) require owner validation before publishing them.",
+  "challenges": [
+    "Keep visual and functional coherence across multiple stores (multistore) without duplicating implementations.",
+    "Customize checkout and catalog while staying compatible with third-party modules.",
+    "Normalize event tracking across critical flows (payments, shipping) for analytics.",
+    "Operate under telecom-retail confidentiality constraints."
+  ],
+  "approach": [
+    "Magento 2 implementation in PHP, JavaScript, Knockout.js, RequireJS, and LESS, leaning on layout XML, UI Components, and native patterns.",
+    "Per-store modularization using Magento 2 multistore capabilities (scope, themes, and configuration per store view).",
+    "Integration with payment and shipping services through certified APIs and modules.",
+    "Version control, code review, and deployments following the team's agile practices."
+  ],
+  "outcomes": [
+    "Catalog, checkout, payments, and shipping running with maintainable customizations inside the Magento 2 ecosystem.",
+    "Delivery under Scrum / Kanban with pull requests, code reviews, and technical documentation.",
+    "Final conversion, abandonment, and performance metrics pending validation before publishing."
+  ],
+  "stack": [
+    "Magento 2",
+    "PHP 7/8",
+    "JavaScript (Knockout.js, RequireJS)",
+    "LESS",
+    "REST APIs for payments and shipping",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Production store logo or screenshot",
+    "Conversion and performance metrics",
+    "Client team member names and avatars"
+  ],
+  "confidential": true
+}

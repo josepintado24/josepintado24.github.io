@@ -1,0 +1,44 @@
+{
+  "locale": "en",
+  "slug": "crepier",
+  "title": "Crepier — Peru/Ecuador multistore with country selector and bundles",
+  "summary": "Magento e-commerce implementation with separate stores for Peru and Ecuador, a shared country selector, bundles, and editable landing-page components.",
+  "role": "Web Developer / Magento & E-commerce (Freelance)",
+  "period": "Feb. 2020 – Aug. 2025",
+  "client": "Crepier (Peru and Ecuador)",
+  "audience": "commerce",
+  "context": "Retail chain with presence in Peru and Ecuador that needed two stores with independent catalogs and pricing but a coherent brand experience. The challenge was to share navigation and components across countries without duplicating maintenance work and respecting each market's commercial and regulatory specifics.",
+  "challenges": [
+    "Separate commercial scope (catalog, prices, currency, taxes) per country without fragmenting the codebase.",
+    "Build a visible and persistent country selector that switches store without losing context.",
+    "Model bundles that combine variable products per market.",
+    "Let the marketing team edit landing pages and sections without touching code."
+  ],
+  "approach": [
+    "Magento 2 multistore: store view per country, a shared base theme, and per-store overrides.",
+    "Country-selector component that detects the user's country and allows manual switching between Peru and Ecuador.",
+    "Bundle catalog with rules that combine simple and configurable products based on per-market stock.",
+    "CMS blocks and manageable widgets so marketing can run landing pages and home sections without redeploys."
+  ],
+  "outcomes": [
+    "Two live stores (Peru and Ecuador) sharing base navigation and components.",
+    "Country selector working between both stores without breaking the cart.",
+    "Configurable bundles with per-market rules.",
+    "Landing pages and sections editable by the in-house team without touching the repository.",
+    "Final conversion and abandonment metrics pending validation before publishing."
+  ],
+  "stack": [
+    "Magento 2",
+    "PHP",
+    "JavaScript (Knockout.js, RequireJS)",
+    "LESS",
+    "CMS blocks and widgets",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Screenshots of the country selector and editable landing pages",
+    "Per-country conversion and abandonment metrics",
+    "Client logo or visual identity"
+  ],
+  "confidential": false
+}

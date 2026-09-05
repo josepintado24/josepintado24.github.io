@@ -19,6 +19,26 @@ main { max-width: 70ch; margin: 0 auto; padding: var(--space-8) var(--space-6); 
 .cv-download:hover { transform: translateY(-1px); border-color: var(--color-amber); }
 .cv-download__label { font-weight: 600; font-size: 1.05rem; }
 .cv-download__detail { color: var(--color-muted); font-size: 0.85rem; }
+.case-studies { display: grid; gap: var(--space-4); }
+.case-studies__intro { color: var(--color-muted); margin: 0; }
+.case-studies__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); }
+.case-card { display: grid; gap: var(--space-2); padding: var(--space-4) var(--space-6); border: 1px solid #1f2937; border-left: 3px solid var(--color-cyan); border-radius: var(--radius-md); color: var(--color-fg); text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
+.case-card:hover { border-color: var(--color-blue); border-left-color: var(--color-amber); transform: translateY(-1px); }
+.case-card__client { color: var(--color-cyan); font-size: 0.85rem; text-transform: uppercase; letter-spacing: .08em; margin: 0; }
+.case-card__title { margin: 0; font-size: 1.2rem; line-height: 1.25; }
+.case-card__summary { color: var(--color-muted); margin: 0; font-size: 0.95rem; }
+.case-card__meta { color: var(--color-muted); font-size: 0.8rem; margin: 0; display: flex; gap: .5em; flex-wrap: wrap; }
+.case-card__meta [aria-hidden] { color: #374151; }
+.case-study { display: grid; gap: var(--space-6); }
+.case-study__header { display: grid; gap: var(--space-2); }
+.case-study__meta { color: var(--color-muted); font-size: 0.85rem; margin: 0; display: flex; gap: .5em; flex-wrap: wrap; }
+.case-study__meta [aria-hidden] { color: #374151; }
+.case-study__audience { padding: 1pt 6pt; border: 1px solid var(--color-amber); border-radius: 99px; color: var(--color-amber); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .08em; }
+.case-study__summary { margin: 0; }
+.case-study__stack { list-style: none; padding: 0; margin: 0; display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.case-study__stack li { padding: 2pt 8pt; border: 1px solid #1f2937; border-radius: 99px; font-size: 0.8rem; color: var(--color-muted); }
+.case-study__back { margin: 0; }
+.lang-switch--inline { gap: var(--space-2); }
 .infinity-mark { width: 4rem; color: var(--color-cyan); }
 @media (prefers-reduced-motion: no-preference) {
   .infinity-mark { animation: drift 8s ease-in-out infinite alternate; }

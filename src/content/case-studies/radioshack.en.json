@@ -1,0 +1,44 @@
+{
+  "locale": "en",
+  "slug": "radioshack",
+  "title": "RadioShack — Custom checkout, validation, and event tracking",
+  "summary": "Checkout optimization for RadioShack with client-side validation, load improvements, and normalized event tracking for analytics.",
+  "role": "Web Developer / Magento & E-commerce (Freelance)",
+  "period": "Feb. 2020 – Aug. 2025",
+  "client": "RadioShack",
+  "audience": "commerce",
+  "context": "Magento 2 store focused on checkout conversion: the client wanted to reduce form friction, control the quality of captured data, and better understand user behavior at each step of the funnel.",
+  "challenges": [
+    "Reduce checkout load time without losing compatibility with existing extensions.",
+    "Validate buyer data (address, identification, contact) before sending it to the backend.",
+    "Capture relevant funnel events to feed Google Analytics and Google Tag Manager.",
+    "Show contextual error messages without breaking the flow."
+  ],
+  "approach": [
+    "Checkout refactor in Magento 2 on top of Knockout.js, RequireJS, and LESS, keeping the native module contracts.",
+    "Progressive client-side validation that surfaces errors only when the user leaves a field or tries to advance.",
+    "Data layer with normalized events for checkout, payment, and confirmation.",
+    "Checkout asset optimization: bundling, deferred loading, and selective prefetch to reduce time-to-usable-byte."
+  ],
+  "outcomes": [
+    "Checkout with stricter validation and contextual error messages.",
+    "Event layer ready for Google Tag Manager and Google Analytics 4.",
+    "Improved checkout load time, subject to final metrics pending confirmation.",
+    "Abandonment and conversion metrics pending validation before publishing."
+  ],
+  "stack": [
+    "Magento 2",
+    "PHP",
+    "JavaScript (Knockout.js, RequireJS)",
+    "LESS",
+    "Google Tag Manager",
+    "Google Analytics",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Screenshots of the validated checkout",
+    "Before/after abandonment and conversion metrics",
+    "Diagram of the implemented dataLayer"
+  ],
+  "confidential": false
+}

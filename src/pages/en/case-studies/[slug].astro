@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCaseStudies, getCaseStudyDetail, getCaseStudyPair } from '../../../lib/content';
+import { locales, type Locale } from '../../../lib/i18n';
+import { canonical, SITE_ORIGIN } from '../../../lib/seo';
+
+export async function getStaticPaths() {
+  const studies = await getCaseStudies('en');
+  return studies.map((s) => ({ params: { slug: s.slug } }));
+}
+
+const locale: Locale = 'en';
+const { slug } = Astro.params;
+if (!slug || typeof slug !== 'string') {
+  return Astro.redirect('/en/');
+}
+
+const detail = await getCaseStudyDetail(locale, slug);
+if (!detail) {
+  return new Response('Not found', { status: 404 });
+}
+
+const pair = await getCaseStudyPair(slug);
+const otherLocale = locale === 'es' ? 'en' : 'es';
+
+const pageTitle = `${detail.title} — ${detail.client}`;
+const pageDescription = detail.summary;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: detail.title,
+  alternateName: pair?.[otherLocale]?.title,
+  description: detail.summary,
+  about: detail.client,
+  inLanguage: locale,
+  url: canonical(`/case-studies/${slug}/`, locale),
+  author: { '@type': 'Person', name: 'José Luis Pintado Vásquez', url: SITE_ORIGIN },
+  audience: { '@type': 'Audience', audienceType: detail.audience },
+  keywords: detail.stack.join(', '),
+};
+---
+<BaseLayout locale={locale} title={pageTitle} description={pageDescription} path={`/case-studies/${slug}/`}>
+  <article class="case-study" aria-labelledby="case-title">
+    <header class="case-study__header">
+      <p class="case-study__meta">
+        <span>{detail.client}</span>
+        <span aria-hidden="true">·</span>
+        <span>{detail.role}</span>
+        <span aria-hidden="true">·</span>
+        <span>{detail.period}</span>
+        <span aria-hidden="true">·</span>
+        <span class="case-study__audience" data-audience={detail.audience}>{detail.audience}</span>
+      </p>
+      <h1 id="case-title" class="gradient-text">{detail.title}</h1>
+      <p class="case-study__summary">{detail.summary}</p>
+      <nav aria-label="Switch language">
+        <ul class="lang-switch lang-switch--inline">
+          {locales.map((alt) => (
+            <li>
+              <a
+                href={canonical(`/case-studies/${slug}/`, alt)}
+                hreflang={alt}
+                lang={alt}
+                aria-current={alt === locale ? 'page' : undefined}
+              >{alt.toUpperCase()}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    <section aria-labelledby="case-context">
+      <h2 id="case-context">Context</h2>
+      <p>{detail.context}</p>
+    </section>
+
+    <section aria-labelledby="case-challenges">
+      <h2 id="case-challenges">Challenges</h2>
+      <ul>
+        {detail.challenges.map((c) => <li>{c}</li>)}
+      </ul>
+    </section>
+
+    <section aria-labelledby="case-approach">
+      <h2 id="case-approach">Approach</h2>
+      <ul>
+        {detail.approach.map((a) => <li>{a}</li>)}
+      </ul>
+    </section>
+
+    <section aria-labelledby="case-outcomes">
+      <h2 id="case-outcomes">Outcomes</h2>
+      <ul>
+        {detail.outcomes.map((o) => <li>{o}</li>)}
+      </ul>
+    </section>
+
+    <section aria-labelledby="case-stack">
+      <h2 id="case-stack">Stack</h2>
+      <ul class="case-study__stack">
+        {detail.stack.map((t) => <li>{t}</li>)}
+      </ul>
+    </section>
+
+    {detail.pendingAssets.length > 0 && (
+      <aside class="pending-asset" role="note" aria-labelledby="case-pending">
+        <p id="case-pending">
+          <strong>Pending publication</strong> · <span>{detail.pendingAssets.join(' · ')}</span>
+        </p>
+      </aside>
+    )}
+
+    <p class="case-study__back"><a href={canonical('/', locale)}>← Back to home</a></p>
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </article>
+</BaseLayout>

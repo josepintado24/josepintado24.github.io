@@ -3,10 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Contact from '../../components/Contact.astro';
 import PendingAsset from '../../components/PendingAsset.astro';
-import { getProfile } from '../../lib/content';
+import { getProfile, getCaseStudies } from '../../lib/content';
 import { pending } from '../../lib/assets';
+import { canonical } from '../../lib/seo';
 const profile = await getProfile('es');
 const labels = { email: profile.email, phone: profile.phone, linkedin: 'LinkedIn', heading: 'Contacto' };
+const commerceStudies = await getCaseStudies('es', { audience: 'commerce' });
 ---
 <BaseLayout locale="es" title="José Luis Pintado Vásquez — Portafolio" description="Portafolio bilingüe" path="/">
   <Hero locale="es" headline={profile.headline} summary={profile.summary} />
@@ -18,5 +20,27 @@ const labels = { email: profile.email, phone: profile.phone, linkedin: 'LinkedIn
   ) : (
     <PendingAsset asset={pending('CV / Currículum', 'Pendiente: aún no se ha publicado el archivo /cv.pdf.')} />
   )}
+
+  <section class="case-studies" aria-labelledby="case-studies-heading-es">
+    <h2 id="case-studies-heading-es">Casos de e-commerce</h2>
+    <p class="case-studies__intro">Selección de proyectos Magento 2 y multistore en producción.</p>
+    <ul class="case-studies__list">
+      {commerceStudies.map((study) => (
+        <li>
+          <a class="case-card" href={canonical(`/case-studies/${study.slug}/`, 'es')} hreflang="es">
+            <p class="case-card__client">{study.client}</p>
+            <h3 class="case-card__title">{study.title}</h3>
+            <p class="case-card__summary">{study.summary}</p>
+            <p class="case-card__meta">
+              <span>{study.role}</span>
+              <span aria-hidden="true">·</span>
+              <span>{study.period}</span>
+            </p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
   <Contact email={profile.email} phone={profile.phone} linkedin={profile.linkedin} labels={labels} />
 </BaseLayout>

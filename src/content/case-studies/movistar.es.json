@@ -1,0 +1,42 @@
+{
+  "locale": "es",
+  "slug": "movistar",
+  "title": "Movistar — Operación e-commerce y experiencia de compra",
+  "summary": "Trabajo en catálogo, checkout, pagos y envíos sobre una plataforma Magento 2 multistore para el retail de Telefónica. Detalles específicos del cliente y métricas finales pendientes de confirmación del titular.",
+  "role": "Lead Engineer / Front End E-commerce (en NTT DATA / Stefanini)",
+  "period": "ago. 2023 – mar. 2026",
+  "client": "Movistar (Telefónica)",
+  "audience": "commerce",
+  "context": "Engagement corporativo dentro de cuentas de NTT DATA y Stefanini con foco en Magento 2 para retail de Telefónica en Perú. El alcance reportado en el CV cubre personalizaciones de catálogo, checkout, pagos, envíos y operación multistore, pero los detalles cerrados del cliente (logos, capturas y métricas) requieren validación del titular antes de publicarlos.",
+  "challenges": [
+    "Mantener coherencia visual y funcional entre múltiples tiendas (multistore) sin duplicar implementaciones.",
+    "Personalizar checkout y catálogo manteniendo compatibilidad con módulos de terceros.",
+    "Normalizar el tracking de eventos en flujos críticos (pagos, envíos) para analítica.",
+    "Operar bajo restricciones de confidencialidad propias del retail telecom."
+  ],
+  "approach": [
+    "Implementación en Magento 2 con PHP, JavaScript, Knockout.js, RequireJS y LESS, manteniendo layout XML, UI Components y patrones nativos.",
+    "Modularización por tienda usando las capacidades multistore de Magento 2 (alcance, temas y configuración por store view).",
+    "Integración con servicios de pago y envío vía APIs y módulos certificados.",
+    "Versionado, code review y despliegues siguiendo prácticas ágiles del equipo."
+  ],
+  "outcomes": [
+    "Catálogo, checkout, pagos y envíos funcionando con personalizaciones mantenibles dentro del ecosistema Magento 2.",
+    "Trabajo entregado bajo Scrum / Kanban con PR, code reviews y documentación técnica.",
+    "Métricas finales de conversión, abandono y rendimiento pendientes de validación antes de publicarlas."
+  ],
+  "stack": [
+    "Magento 2",
+    "PHP 7/8",
+    "JavaScript (Knockout.js, RequireJS)",
+    "LESS",
+    "APIs REST de pago y envío",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Logo o captura de la tienda en producción",
+    "Métricas de conversión y rendimiento",
+    "Nombres y avatares del equipo del cliente"
+  ],
+  "confidential": true
+}

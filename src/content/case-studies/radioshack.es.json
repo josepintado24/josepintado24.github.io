@@ -1,0 +1,44 @@
+{
+  "locale": "es",
+  "slug": "radioshack",
+  "title": "RadioShack — Checkout personalizado, validaciones y tracking de eventos",
+  "summary": "Optimización del checkout de RadioShack con validaciones client-side, mejoras de carga y normalización del tracking de eventos para analítica.",
+  "role": "Desarrollador Web / Magento y E-commerce (Freelance)",
+  "period": "feb. 2020 – ago. 2025",
+  "client": "RadioShack",
+  "audience": "commerce",
+  "context": "Tienda Magento 2 con foco en la conversión del checkout: el cliente buscaba reducir fricción en el formulario, controlar la calidad de los datos capturados y entender mejor el comportamiento del usuario en cada paso del funnel.",
+  "challenges": [
+    "Reducir el tiempo de carga del checkout sin perder compatibilidad con extensiones existentes.",
+    "Validar datos del comprador (dirección, identificación, contacto) antes de enviarlos al backend.",
+    "Capturar eventos relevantes del funnel para alimentar Google Analytics y Google Tag Manager.",
+    "Mostrar mensajes de error contextuales sin interrumpir el flujo."
+  ],
+  "approach": [
+    "Refactor del checkout en Magento 2 sobre Knockout.js, RequireJS y LESS, manteniendo los contratos del módulo nativo.",
+    "Validaciones client-side progresivas que muestran errores solo cuando el usuario sale del campo o intenta avanzar.",
+    "Capa de datos (dataLayer) con eventos normalizados para checkout, pago y confirmación.",
+    "Optimización de assets del checkout: combinación, diferido y precarga selectiva para reducir tiempo al primer byte usable."
+  ],
+  "outcomes": [
+    "Checkout con validaciones más estrictas y mensajes de error contextuales.",
+    "Capa de eventos lista para Google Tag Manager y Google Analytics 4.",
+    "Tiempo de carga del checkout mejorado, sujeto a métricas finales por confirmar.",
+    "Métricas de abandono y conversión pendientes de validación antes de publicarlas."
+  ],
+  "stack": [
+    "Magento 2",
+    "PHP",
+    "JavaScript (Knockout.js, RequireJS)",
+    "LESS",
+    "Google Tag Manager",
+    "Google Analytics",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Capturas del checkout con validaciones",
+    "Métricas de abandono y conversión antes/después",
+    "Diagrama del dataLayer implementado"
+  ],
+  "confidential": false
+}
