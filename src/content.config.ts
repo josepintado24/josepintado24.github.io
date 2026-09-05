@@ -35,6 +35,11 @@ const caseStudySchema = z.object({
   stack: z.array(z.string()),
   pendingAssets: z.array(z.string()).default([]),
   confidential: z.boolean().default(false),
+  documents: z.array(z.object({
+    label: z.string(),
+    url: z.string(),
+    kind: z.enum(['certificate', 'reference', 'press', 'other']).default('certificate'),
+  })).default([]),
 });
 
 const educationSchema = z.object({
@@ -57,6 +62,7 @@ const credentialSchema = z.object({
   hours: z.number().int().optional(),
   summary: z.string().optional(),
   pdf: z.string().optional(),
+  pdfs: z.array(z.string()).default([]),
   pendingAssets: z.array(z.string()).default([]),
 });
 

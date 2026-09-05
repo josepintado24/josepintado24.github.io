@@ -104,6 +104,22 @@ const jsonLd = {
       </div>
     </section>
 
+    {detail.documents.length > 0 && (
+      <section class="case-study__documents" aria-labelledby="case-docs-heading">
+        <h2 id="case-docs-heading">Documentos</h2>
+        <ul class="case-study__documents-list">
+          {detail.documents.map((doc) => (
+            <li>
+              <a class="cv-download" href={doc.url} download type="application/pdf" rel="noopener">
+                <span class="cv-download__label">{doc.label}</span>
+                <span class="cv-download__detail">PDF</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
     {detail.pendingAssets.length > 0 && (
       <aside class="pending-asset" role="note" aria-labelledby="case-pending">
         <p id="case-pending">

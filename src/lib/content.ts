@@ -32,12 +32,19 @@ export interface CaseStudySummary {
   stack: string[];
 }
 
+export interface CaseStudyDocument {
+  label: string;
+  url: string;
+  kind: 'certificate' | 'reference' | 'press' | 'other';
+}
+
 export interface CaseStudyDetail extends CaseStudySummary {
   context: string;
   challenges: string[];
   approach: string[];
   outcomes: string[];
   stack: string[];
+  documents: CaseStudyDocument[];
 }
 
 function summarize(entry: { data: any }): CaseStudySummary {
@@ -63,6 +70,7 @@ function detailize(entry: { data: any }): CaseStudyDetail {
     approach: entry.data.approach,
     outcomes: entry.data.outcomes,
     stack: entry.data.stack,
+    documents: entry.data.documents ?? [],
   };
 }
 
@@ -150,6 +158,7 @@ export interface CredentialSummary {
   year: number;
   hours?: number;
   pdf?: string;
+  pdfs: string[];
   pendingAssets: string[];
 }
 
@@ -250,6 +259,7 @@ export async function getCredentials(locale: Locale): Promise<CredentialSummary[
       year: d.year,
       hours: d.hours,
       pdf: d.pdf,
+      pdfs: d.pdfs ?? [],
       pendingAssets: d.pendingAssets ?? [],
     });
   }
@@ -268,6 +278,7 @@ export async function getCredentialDetail(locale: Locale, slug: string): Promise
     hours: d.hours,
     summary: d.summary,
     pdf: d.pdf,
+    pdfs: d.pdfs ?? [],
     pendingAssets: d.pendingAssets ?? [],
   };
 }

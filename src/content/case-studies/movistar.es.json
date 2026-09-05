@@ -33,6 +33,10 @@
     "APIs REST de pago y envío",
     "Git"
   ],
+  "documents": [
+    { "label": "Certificado de trabajo — Stefanini IT Solutions / NTT DATA", "url": "/documents/work/cert-trabajo-stefanini-nttdata.pdf", "kind": "certificate" },
+    { "label": "Certificado de trabajo — periodo corporativo", "url": "/documents/work/cert-trabajo-stefanini-nttdata-2.pdf", "kind": "certificate" }
+  ],
   "pendingAssets": [
     "Logo o captura de la tienda en producción",
     "Métricas de conversión y rendimiento",

@@ -38,6 +38,8 @@ main { max-width: 70ch; margin: 0 auto; padding: var(--space-8) var(--space-6); 
 .case-card__meta { color: var(--color-muted); font-size: 0.8rem; margin: 0; display: flex; gap: .5em; flex-wrap: wrap; }
 .case-card__meta [aria-hidden] { color: #374151; }
 .case-study { display: grid; gap: var(--space-6); }
+.case-study__documents-list,
+.credential-detail__download-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
 .case-study__header { display: grid; gap: var(--space-2); }
 .case-study__meta { color: var(--color-muted); font-size: 0.85rem; margin: 0; display: flex; gap: .5em; flex-wrap: wrap; }
 .case-study__meta [aria-hidden] { color: #374151; }

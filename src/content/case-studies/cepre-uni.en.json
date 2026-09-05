@@ -34,6 +34,10 @@
     "CSS",
     "Git"
   ],
+  "documents": [
+    { "label": "Service completion certificate", "url": "/documents/work/cepre-uni-cumplimiento.pdf", "kind": "certificate" },
+    { "label": "Service conformity certificate", "url": "/documents/work/cepre-uni-conformidad.pdf", "kind": "certificate" }
+  ],
   "pendingAssets": [
     "Screenshots of the institutional site and editorial backend",
     "Traffic and internal-panel usage metrics",

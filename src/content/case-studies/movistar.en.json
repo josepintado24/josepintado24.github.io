@@ -33,6 +33,10 @@
     "REST APIs for payments and shipping",
     "Git"
   ],
+  "documents": [
+    { "label": "Work certificate — Stefanini IT Solutions / NTT DATA", "url": "/documents/work/cert-trabajo-stefanini-nttdata.pdf", "kind": "certificate" },
+    { "label": "Work certificate — corporate period", "url": "/documents/work/cert-trabajo-stefanini-nttdata-2.pdf", "kind": "certificate" }
+  ],
   "pendingAssets": [
     "Production store logo or screenshot",
     "Conversion and performance metrics",

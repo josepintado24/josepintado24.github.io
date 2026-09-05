@@ -34,6 +34,10 @@
     "CSS",
     "Git"
   ],
+  "documents": [
+    { "label": "Constancia de cumplimiento de servicio", "url": "/documents/work/cepre-uni-cumplimiento.pdf", "kind": "certificate" },
+    { "label": "Constancia de conformidad de servicio", "url": "/documents/work/cepre-uni-conformidad.pdf", "kind": "certificate" }
+  ],
   "pendingAssets": [
     "Capturas del sitio institucional y del panel editorial",
     "Métricas de tráfico y de uso del panel interno",
