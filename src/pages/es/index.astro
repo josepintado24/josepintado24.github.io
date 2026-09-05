@@ -3,13 +3,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Contact from '../../components/Contact.astro';
 import PendingAsset from '../../components/PendingAsset.astro';
-import { getProfile, getCaseStudies } from '../../lib/content';
+import { getProfile, getCaseStudies, getEducation, getCredentials } from '../../lib/content';
 import { pending } from '../../lib/assets';
 import { canonical } from '../../lib/seo';
 const profile = await getProfile('es');
 const labels = { email: profile.email, phone: profile.phone, linkedin: 'LinkedIn', heading: 'Contacto' };
 const commerceStudies = await getCaseStudies('es', { audience: 'commerce' });
 const educationStudies = await getCaseStudies('es', { audience: 'education' });
+const educationList = await getEducation('es');
+const credentialsList = await getCredentials('es');
 ---
 <BaseLayout locale="es" title="José Luis Pintado Vásquez — Portafolio" description="Portafolio bilingüe" path="/">
   <Hero locale="es" headline={profile.headline} summary={profile.summary} />
@@ -61,6 +63,46 @@ const educationStudies = await getCaseStudies('es', { audience: 'education' });
                 <span aria-hidden="true">·</span>
                 <span>{study.period}</span>
               </p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {educationList.length > 0 && (
+    <section class="education" aria-labelledby="education-heading-es">
+      <h2 id="education-heading-es">Formación académica</h2>
+      <ul class="case-studies__list">
+        {educationList.map((edu) => (
+          <li>
+            <a class="case-card" href={canonical(`/education/${edu.slug}/`, 'es')} hreflang="es">
+              <p class="case-card__client">{edu.institution}</p>
+              <h3 class="case-card__title">{edu.title}</h3>
+              <p class="case-card__meta">
+                <span>{edu.period}</span>
+                <span aria-hidden="true">·</span>
+                <span>{edu.status === 'in-progress' ? 'En curso' : 'Completado'}</span>
+              </p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {credentialsList.length > 0 && (
+    <section class="credentials" aria-labelledby="credentials-heading-es">
+      <h2 id="credentials-heading-es">Credenciales y formación continua</h2>
+      <ul class="case-studies__list">
+        {credentialsList.map((cred) => (
+          <li>
+            <a class="case-card" href={canonical(`/credentials/${cred.slug}/`, 'es')} hreflang="es">
+              <p class="case-card__client">{cred.issuer} · {cred.year}{cred.hours ? ` · ${cred.hours} h` : ''}</p>
+              <h3 class="case-card__title">{cred.title}</h3>
+              {!cred.pdf && (
+                <p class="card-credential__pending">Pendiente de documento público</p>
+              )}
             </a>
           </li>
         ))}

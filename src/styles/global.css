@@ -47,6 +47,13 @@ main { max-width: 70ch; margin: 0 auto; padding: var(--space-8) var(--space-6); 
 .case-study__stack li { padding: 2pt 8pt; border: 1px solid #1f2937; border-radius: 99px; font-size: 0.8rem; color: var(--color-muted); }
 .case-study__back { margin: 0; }
 .lang-switch--inline { gap: var(--space-2); }
+.education, .credentials { display: grid; gap: var(--space-4); }
+.card-credential__pending { color: var(--color-amber); font-size: 0.85rem; margin: 0; font-style: italic; }
+.education-detail__meta, .credential-detail__meta { color: var(--color-muted); font-size: 0.85rem; margin: 0; display: flex; gap: .5em; flex-wrap: wrap; }
+.education-detail__meta [aria-hidden], .credential-detail__meta [aria-hidden] { color: #374151; }
+.education-detail__status[data-status="in-progress"] { color: var(--color-cyan); font-weight: 600; }
+.education-detail__status[data-status="completed"] { color: var(--color-muted); }
+.education-detail, .credential-detail { display: grid; gap: var(--space-4); }
 .infinity-mark { width: 4rem; color: var(--color-cyan); }
 @media (prefers-reduced-motion: no-preference) {
   .infinity-mark { animation: drift 8s ease-in-out infinite alternate; }

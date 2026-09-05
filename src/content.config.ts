@@ -36,6 +36,29 @@ const caseStudySchema = z.object({
   confidential: z.boolean().default(false),
 });
 
+const educationSchema = z.object({
+  locale,
+  slug: z.string(),
+  institution: z.string(),
+  title: z.string(),
+  period: z.string(),
+  status: z.enum(['in-progress', 'completed']),
+  description: z.string().optional(),
+  pendingAssets: z.array(z.string()).default([]),
+});
+
+const credentialSchema = z.object({
+  locale,
+  slug: z.string(),
+  title: z.string(),
+  issuer: z.string(),
+  year: z.number().int().min(1900).max(2100),
+  hours: z.number().int().optional(),
+  summary: z.string().optional(),
+  pdf: z.string().optional(),
+  pendingAssets: z.array(z.string()).default([]),
+});
+
 const site = defineCollection({ loader: glob({ pattern: '{es,en}/site.json', base: './src/content' }), schema: siteSchema });
 const profile = defineCollection({ loader: glob({ pattern: '{es,en}/profile.json', base: './src/content' }), schema: profileSchema });
 const caseStudies = defineCollection({
@@ -46,6 +69,23 @@ const caseStudies = defineCollection({
   }),
   schema: caseStudySchema,
 });
+const education = defineCollection({
+  loader: glob({
+    pattern: 'education/*.json',
+    base: './src/content',
+    generateId: ({ entry }) => entry.split('/').pop()!.replace(/\.json$/, ''),
+  }),
+  schema: educationSchema,
+});
+const credentials = defineCollection({
+  loader: glob({
+    pattern: 'credentials/*.json',
+    base: './src/content',
+    generateId: ({ entry }) => entry.split('/').pop()!.replace(/\.json$/, ''),
+  }),
+  schema: credentialSchema,
+});
 
-export const collections = { site, profile, caseStudies };
+export const collections = { site, profile, caseStudies, education, credentials };
 export const APPROVED_CASE_STUDY_SLUGS = ['movistar', 'crepier', 'radioshack', 'desly', 'cepre-uni'] as const;
+export const APPROVED_EDUCATION_SLUGS = ['upc', 'esan', 'cibertec'] as const;

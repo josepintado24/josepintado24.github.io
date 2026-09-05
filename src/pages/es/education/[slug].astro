@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PendingAsset from '../../../components/PendingAsset.astro';
+import { getEducationDetail } from '../../../lib/content';
+import { locales, type Locale } from '../../../lib/i18n';
+import { canonical } from '../../../lib/seo';
+
+export async function getStaticPaths() {
+  const { getEducation } = await import('../../../lib/content');
+  const studies = await getEducation('es');
+  return studies.map((s) => ({ params: { slug: s.slug } }));
+}
+
+const locale: Locale = 'es';
+const { slug } = Astro.params;
+if (!slug || typeof slug !== 'string') return Astro.redirect('/es/');
+
+const detail = await getEducationDetail(locale, slug);
+if (!detail) return new Response('Not found', { status: 404 });
+
+const pageTitle = `${detail.title} — ${detail.institution}`;
+---
+<BaseLayout locale={locale} title={pageTitle} description={detail.description ?? detail.title} path={`/education/${slug}/`}>
+  <article class="education-detail">
+    <p class="education-detail__meta">
+      <span>{detail.institution}</span>
+      <span aria-hidden="true">·</span>
+      <span>{detail.period}</span>
+      <span aria-hidden="true">·</span>
+      <span class="education-detail__status" data-status={detail.status}>{detail.status === 'in-progress' ? 'En curso' : 'Completado'}</span>
+    </p>
+    <h1 class="gradient-text">{detail.title}</h1>
+    {detail.description && <p>{detail.description}</p>}
+
+    <nav aria-label="Cambiar idioma">
+      <ul class="lang-switch lang-switch--inline">
+        {locales.map((alt) => (
+          <li>
+            <a href={canonical(`/education/${slug}/`, alt)} hreflang={alt} lang={alt} aria-current={alt === locale ? 'page' : undefined}>{alt.toUpperCase()}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    {detail.pendingAssets.length > 0 && (
+      <aside class="pending-asset" role="note">
+        <p><strong>Pendiente de publicar</strong> · <span>{detail.pendingAssets.join(' · ')}</span></p>
+      </aside>
+    )}
+
+    <p><a href={canonical('/', locale)}>← Volver al inicio</a></p>
+  </article>
+</BaseLayout>
