@@ -9,6 +9,7 @@ import { canonical } from '../../lib/seo';
 const profile = await getProfile('en');
 const labels = { email: profile.email, phone: profile.phone, linkedin: 'LinkedIn', heading: 'Contact' };
 const commerceStudies = await getCaseStudies('en', { audience: 'commerce' });
+const educationStudies = await getCaseStudies('en', { audience: 'education' });
 ---
 <BaseLayout locale="en" title="José Luis Pintado Vásquez — Portfolio" description="Bilingual portfolio" path="/">
   <Hero locale="en" headline={profile.headline} summary={profile.summary} />
@@ -21,26 +22,51 @@ const commerceStudies = await getCaseStudies('en', { audience: 'commerce' });
     <PendingAsset asset={pending('CV / Résumé', 'Pending: /cv.pdf has not been published yet.')} />
   )}
 
-  <section class="case-studies" aria-labelledby="case-studies-heading-en">
-    <h2 id="case-studies-heading-en">E-commerce case studies</h2>
-    <p class="case-studies__intro">Selected Magento 2 and multistore projects in production.</p>
-    <ul class="case-studies__list">
-      {commerceStudies.map((study) => (
-        <li>
-          <a class="case-card" href={canonical(`/case-studies/${study.slug}/`, 'en')} hreflang="en">
-            <p class="case-card__client">{study.client}</p>
-            <h3 class="case-card__title">{study.title}</h3>
-            <p class="case-card__summary">{study.summary}</p>
-            <p class="case-card__meta">
-              <span>{study.role}</span>
-              <span aria-hidden="true">·</span>
-              <span>{study.period}</span>
-            </p>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
+  {commerceStudies.length > 0 && (
+    <section class="case-studies" aria-labelledby="case-commerce-heading-en">
+      <h2 id="case-commerce-heading-en">E-commerce case studies</h2>
+      <p class="case-studies__intro">Selected Magento 2 and multistore projects in production.</p>
+      <ul class="case-studies__list">
+        {commerceStudies.map((study) => (
+          <li>
+            <a class="case-card" href={canonical(`/case-studies/${study.slug}/`, 'en')} hreflang="en">
+              <p class="case-card__client">{study.client}</p>
+              <h3 class="case-card__title">{study.title}</h3>
+              <p class="case-card__summary">{study.summary}</p>
+              <p class="case-card__meta">
+                <span>{study.role}</span>
+                <span aria-hidden="true">·</span>
+                <span>{study.period}</span>
+              </p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {educationStudies.length > 0 && (
+    <section class="case-studies" aria-labelledby="case-education-heading-en">
+      <h2 id="case-education-heading-en">Education case studies</h2>
+      <p class="case-studies__intro">Projects at educational institutions and learning platforms.</p>
+      <ul class="case-studies__list">
+        {educationStudies.map((study) => (
+          <li>
+            <a class="case-card" href={canonical(`/case-studies/${study.slug}/`, 'en')} hreflang="en">
+              <p class="case-card__client">{study.client}</p>
+              <h3 class="case-card__title">{study.title}</h3>
+              <p class="case-card__summary">{study.summary}</p>
+              <p class="case-card__meta">
+                <span>{study.role}</span>
+                <span aria-hidden="true">·</span>
+                <span>{study.period}</span>
+              </p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   <Contact email={profile.email} phone={profile.phone} linkedin={profile.linkedin} labels={labels} />
 </BaseLayout>

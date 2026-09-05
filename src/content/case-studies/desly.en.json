@@ -1,0 +1,44 @@
+{
+  "locale": "en",
+  "slug": "desly",
+  "title": "Desly — Manageable menus and editable checkout sections",
+  "summary": "Customization of the Desly e-commerce with editable menus and sections, configurable landing pages, and manageable checkout blocks without touching code.",
+  "role": "Web Developer / Magento & E-commerce (Freelance)",
+  "period": "Feb. 2020 – Aug. 2025",
+  "client": "Desly",
+  "audience": "education",
+  "context": "An education-sector client on Magento who needed to give the in-house team control over menus, landings, and key checkout sections without depending on a developer for every change. The challenge was to expose editable blocks without breaking the native Magento 2 module architecture.",
+  "challenges": [
+    "Let the in-house team edit navigation menus without touching the repository.",
+    "Build a header configurable per category or season.",
+    "Enable landing pages with reusable drag-and-drop blocks.",
+    "Expose checkout sections that marketing could tune without redeploys."
+  ],
+  "approach": [
+    "Magento 2 with CMS blocks and widgets, nested per category and per page.",
+    "Slot-based configurable header with empty-slot fallback.",
+    "Landing pages built from reusable blocks (CMS + layout XML per route).",
+    "Checkout sections wrapped in editable blocks while keeping the native module contracts."
+  ],
+  "outcomes": [
+    "Menus editable by the in-house team without code changes.",
+    "Configurable header that switches between catalog sections without redeploy.",
+    "Reusable landing pages ready for short campaigns.",
+    "Checkout sections adjustable in content without affecting business logic.",
+    "Final screenshots and metrics pending validation before publishing."
+  ],
+  "stack": [
+    "Magento 2",
+    "PHP",
+    "JavaScript (Knockout.js, RequireJS)",
+    "LESS",
+    "CMS blocks and widgets",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Screenshots of the configurable header and reusable landing pages",
+    "Before/after CMS usage metrics",
+    "Client visual identity or mockups"
+  ],
+  "confidential": false
+}

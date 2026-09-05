@@ -1,0 +1,44 @@
+{
+  "locale": "es",
+  "slug": "desly",
+  "title": "Desly — Menús administrables y checkout editable",
+  "summary": "Personalización del e-commerce de Desly con menús y secciones editables, landing pages configurables y bloques de checkout gestionables sin tocar el código.",
+  "role": "Desarrollador Web / Magento y E-commerce (Freelance)",
+  "period": "feb. 2020 – ago. 2025",
+  "client": "Desly",
+  "audience": "education",
+  "context": "Cliente del sector educativo con tienda Magento que necesitaba entregar al equipo interno control sobre los menús, las landings y las secciones clave del checkout sin depender de un desarrollador para cada cambio. El reto era exponer bloques editables sin romper la arquitectura del módulo nativo de Magento 2.",
+  "challenges": [
+    "Permitir al equipo interno editar menús de navegación sin tocar el repositorio.",
+    "Construir un header configurable por categoría o temporada.",
+    "Habilitar landing pages con bloques arrastrables y reutilizables.",
+    "Exponer secciones del checkout que marketing pudiera ajustar sin redeploys."
+  ],
+  "approach": [
+    "Magento 2 con bloques CMS y widgets, anidados por categoría y por página.",
+    "Patrón de header configurable por slot, con fallback cuando un slot está vacío.",
+    "Landing pages montadas con bloques reutilizables (CMS + layouts XML por ruta).",
+    "Secciones del checkout envueltas en bloques editables, conservando los contratos del módulo nativo."
+  ],
+  "outcomes": [
+    "Menús editables por el equipo interno sin tocar el código.",
+    "Header configurable que cambia entre secciones del catálogo sin redeploy.",
+    "Landing pages reutilizables listas para campañas puntuales.",
+    "Secciones de checkout ajustables en contenido sin afectar la lógica de negocio.",
+    "Capturas y métricas finales pendientes de validación antes de publicarlas."
+  ],
+  "stack": [
+    "Magento 2",
+    "PHP",
+    "JavaScript (Knockout.js, RequireJS)",
+    "LESS",
+    "Bloques CMS y widgets",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Capturas del header configurable y de las landing pages reutilizables",
+    "Métricas de uso interno del CMS antes/después",
+    "Identidad visual o mockups del cliente"
+  ],
+  "confidential": false
+}

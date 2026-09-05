@@ -1,0 +1,43 @@
+{
+  "locale": "en",
+  "slug": "cepre-uni",
+  "title": "CEPRE-UNI — Accessible institutional site and internal platform",
+  "summary": "Development of the cepreuni.net.pe institutional site and a library web application with accessible interfaces and self-service updates by institutional staff.",
+  "role": "Application Developer (CEPRE-UNI)",
+  "period": "Dec. 2020 – Dec. 2021",
+  "client": "CEPRE-UNI",
+  "audience": "education",
+  "context": "A pre-university center at Universidad Nacional de Ingeniería that needed to refresh its web presence and digitize internal processes. The work happened inside the institution's own team, which made it possible to deliver solutions maintainable by administrative and academic staff without external vendor dependency.",
+  "challenges": [
+    "Build an accessible institutional site that staff could update without touching the repository.",
+    "Model academic content (courses, cycles, admissions, news) in an editable way.",
+    "Digitize internal processes previously managed through spreadsheets or paper forms.",
+    "Keep operations running through the transition without long outages."
+  ],
+  "approach": [
+    "Public site in PHP + JavaScript with editable sections for institutional communications.",
+    "Accessibility as a design constraint: contrast, keyboard navigation, and semantic structure from day one.",
+    "Internal library web application on the same stack.",
+    "Close coordination with the administrative team to define permissions, roles, and editorial workflow."
+  ],
+  "outcomes": [
+    "cepreuni.net.pe in production with sections the staff can update.",
+    "Internal library web application live inside the team.",
+    "Staff training on autonomous updates of the site and digital flows.",
+    "Adoption metrics pending validation before publishing."
+  ],
+  "stack": [
+    "PHP",
+    "JavaScript",
+    "MySQL",
+    "Semantic HTML",
+    "CSS",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Screenshots of the institutional site and editorial backend",
+    "Traffic and internal-panel usage metrics",
+    "Internal documentation of the digital flows delivered"
+  ],
+  "confidential": false
+}

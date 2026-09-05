@@ -1,0 +1,43 @@
+{
+  "locale": "es",
+  "slug": "cepre-uni",
+  "title": "CEPRE-UNI — Sitio institucional accesible y plataforma interna",
+  "summary": "Desarrollo del sitio institucional cepreuni.net.pe y de una aplicación web para biblioteca, con interfaces accesibles y gestión autónoma por el personal de la institución.",
+  "role": "Programador de Aplicaciones (CEPRE-UNI)",
+  "period": "dic. 2020 – dic. 2021",
+  "client": "CEPRE-UNI",
+  "audience": "education",
+  "context": "Centro de estudios preuniversitario de la Universidad Nacional de Ingeniería que necesitaba actualizar su presencia web y digitalizar procesos internos. El trabajo se hizo dentro del propio equipo institucional, lo que permitió entregar soluciones mantenibles por el personal administrativo y académico sin dependencia de proveedores externos.",
+  "challenges": [
+    "Construir un sitio institucional accesible que el personal pudiera actualizar sin tocar el repositorio.",
+    "Modelar contenidos académicos (cursos, ciclos, admisión, noticias) de forma editable.",
+    "Digitalizar procesos internos que hasta entonces se gestionaban en hojas de cálculo o formatos físicos.",
+    "Mantener la operación durante la transición sin ventanas de caída largas."
+  ],
+  "approach": [
+    "Sitio público en PHP + JavaScript con secciones administrables para comunicación institucional.",
+    "Accesibilidad como restricción de diseño: contraste, navegación por teclado y estructura semántica desde el inicio.",
+    "Aplicación web interna para gestión de biblioteca sobre el mismo stack.",
+    "Coordinación estrecha con el equipo administrativo para definir permisos, roles y flujo editorial."
+  ],
+  "outcomes": [
+    "cepreuni.net.pe en producción con secciones actualizables por el personal.",
+    "Aplicación web interna para biblioteca operativa dentro del equipo.",
+    "Capacitación al personal en la actualización autónoma del sitio y de los flujos digitales.",
+    "Métricas de adopción pendientes de validación antes de publicarlas."
+  ],
+  "stack": [
+    "PHP",
+    "JavaScript",
+    "MySQL",
+    "HTML semántico",
+    "CSS",
+    "Git"
+  ],
+  "pendingAssets": [
+    "Capturas del sitio institucional y del panel editorial",
+    "Métricas de tráfico y de uso del panel interno",
+    "Documentación interna de los flujos digitales habilitados"
+  ],
+  "confidential": false
+}
