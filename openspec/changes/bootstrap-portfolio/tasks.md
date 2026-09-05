@@ -74,10 +74,10 @@ Dependencies: Slice 1 merged.
 
 Dependencies: Slice 1 merged.
 
-- [ ] 3.1 RED: missing pair or non-approved `audience` → build fails
-- [ ] 3.2 `src/content/{es,en}/case-studies/{desly,cepre-uni}.{json,md}` (`audience: 'education'` or `'both'`)
-- [ ] 3.3 Re-list studies; dual-career equal weight preserved
-- [ ] 3.4 GREEN: `pnpm build`; detail routes render; live URLs 200; pending assets enumerated
+- [x] 3.1 RED (recorded): the locale-pair validator from Slice 2 fires the same way for education studies — removing the EN file fails the build with `Case study "desly" missing locale pair: en is absent`. Approved-slug guard already in place.
+- [x] 3.2 `src/content/case-studies/{desly,cepre-uni}.{es,en}.json` with `audience: 'education'`. Locale-stable slugs, identical slug in both locales.
+- [x] 3.3 Home now renders two parallel sections: "Casos de e-commerce" and "Casos de educación" / "E-commerce case studies" and "Education case studies". Dual-career parity preserved at the same heading level.
+- [x] 3.4 GREEN: `pnpm build` succeeds (12 pages); `/es/case-studies/desly/`, `/es/case-studies/cepre-uni/`, `/en/case-studies/desly/`, `/en/case-studies/cepre-uni/` all return HTTP/2 200. Pending assets enumerated per study.
 
 ## Phase 4: Slice 4 — Education + Credentials List (PR 4)
 
