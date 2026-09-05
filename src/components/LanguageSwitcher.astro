@@ -5,7 +5,12 @@ const { locale } = Astro.props;
 const currentPath = Astro.url.pathname.replace(/^\/(es|en)/, '') || '/';
 ---
 <nav class="lang-switch" aria-label="Idioma">
-  {locales.filter((l) => l !== locale).map((alt) => (
-    <a href={localePath(alt, currentPath)} hreflang={alt} lang={alt}>{alt.toUpperCase()}</a>
-  ))}
+  {locales.map((alt) => {
+    const isCurrent = alt === locale;
+    return isCurrent ? (
+      <span aria-current="page" lang={alt} class="lang-switch__current">{alt.toUpperCase()}</span>
+    ) : (
+      <a href={localePath(alt, currentPath)} hreflang={alt} lang={alt}>{alt.toUpperCase()}</a>
+    );
+  })}
 </nav>

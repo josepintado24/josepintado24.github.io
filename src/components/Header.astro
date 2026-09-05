@@ -6,8 +6,11 @@ interface Props { locale: Locale; site: { title: string }; profile: { github: st
 const { locale, site, profile } = Astro.props;
 ---
 <header class="site-header">
-  <a class="brand" href={`/${locale}/`}>{site.title}</a>
-  <nav aria-label="Principal">
+  <a class="brand" href={`/${locale}/`} aria-label={`${site.title} — Inicio`}>
+    <span class="brand__mark" aria-hidden="true">∞</span>
+    <span class="brand__name">JLPintado</span>
+  </a>
+  <nav class="site-header__nav" aria-label="Principal">
     <LanguageSwitcher locale={locale} />
     <SocialLinks github={profile.github} linkedin={profile.linkedin} />
   </nav>
