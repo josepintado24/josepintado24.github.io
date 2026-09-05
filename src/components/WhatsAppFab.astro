@@ -1,0 +1,86 @@
+---
+// WhatsAppFab.astro — floating WhatsApp button with localized "let's chat" label.
+import { locales, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  phone: string;
+}
+
+const { locale, phone } = Astro.props as Props;
+
+// wa.me requires digits only, no '+' or spaces
+const waNumber = phone.replace(/[^\d]/g, '');
+const href = `https://wa.me/${waNumber}`;
+
+const labels: Record<Locale, { text: string; aria: string }> = {
+  es: { text: 'Charlamos', aria: 'Chatea con nosotros por WhatsApp' },
+  en: { text: "Let's chat", aria: 'Chat with us on WhatsApp' },
+};
+const t = labels[locale];
+---
+<a class="wa-fab" href={href} target="_blank" rel="noopener" aria-label={t.aria}>
+  <span class="wa-fab__icon" aria-hidden="true">
+    <svg viewBox="0 0 32 32" width="22" height="22">
+      <path fill="currentColor" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.348-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.964 1.17 2.875 1.39 1.81 2.347 2.69 4.243 3.612.876.43 1.554.745 2.302.886.86.157 1.654.23 2.43.158.844-.084 1.642-.385 2.302-.886.595-.45 1.002-.945 1.232-1.604.158-.473.158-1.004-.014-1.474-.116-.343-.473-.6-.946-.6h-.002zM27.677 4.337A13.716 13.716 0 0 0 16.43 0C7.36 0 .092 7.252.092 16.184c0 2.852.758 5.617 2.193 8.057L0 32l8.022-2.102a13.82 13.82 0 0 0 8.408 2.81h.005c9.072 0 16.34-7.252 16.34-16.184a15.65 15.65 0 0 0-.487-3.81 13.71 13.71 0 0 0-4.61-8.378zM16.43 30.135h-.005a14.07 14.07 0 0 1-7.193-1.978l-.516-.302-4.762 1.247 1.275-4.626-.336-.532A13.72 13.72 0 0 1 2.4 16.184C2.4 8.51 8.668 2.34 16.43 2.34a13.692 13.692 0 0 1 9.745 4.07 13.39 13.39 0 0 1 4.043 9.578c.012.13.014.262.014.392 0 7.673-6.27 13.755-13.802 13.755z"/>
+    </svg>
+  </span>
+  <span class="wa-fab__label">{t.text}</span>
+</a>
+<style>
+  .wa-fab {
+    position: fixed;
+    right: clamp(12px, 2.5vw, 24px);
+    bottom: clamp(12px, 2.5vw, 24px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 16px 10px 12px;
+    border-radius: 999px;
+    background: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), 0 2px 6px rgba(0, 0, 0, 0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    z-index: 50;
+  }
+  .wa-fab:hover,
+  .wa-fab:focus-visible {
+    transform: translateY(-1px);
+    background: #1ebe5b;
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  .wa-fab__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    color: #ffffff;
+  }
+  .wa-fab__label {
+    color: #ffffff;
+    letter-spacing: 0.01em;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .wa-fab::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+      animation: wa-pulse 2.4s ease-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+    @keyframes wa-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+      70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+  }
+</style>

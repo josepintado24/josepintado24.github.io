@@ -5,6 +5,7 @@ import { locales, type Locale } from '../lib/i18n';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MotionGuard from '../components/MotionGuard.astro';
+import WhatsAppFab from '../components/WhatsAppFab.astro';
 import '../styles/tokens.css';
 import '../styles/global.css';
 
@@ -38,5 +39,6 @@ const personLd = JSON.stringify(personJsonLd({ author: site.author, linkedin: pr
     <main id="main-content" tabindex="-1"><slot /></main>
     <Footer locale={locale} site={site} />
     <MotionGuard />
+    <WhatsAppFab locale={locale} phone={profile.phone} />
   </body>
 </html>
