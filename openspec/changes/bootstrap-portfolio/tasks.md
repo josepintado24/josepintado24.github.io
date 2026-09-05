@@ -53,7 +53,7 @@ Dependencies: none. Blocks slices 2-5.
 
 - [x] 1.14 GREEN: `pnpm build`; `/`→`/es/` once; `/en/`; both `lang` correct
 - [x] 1.15 GREEN: tab skip link; focus visible; reduced-motion silent; contrast passes
-- [ ] 1.16 PENDING DELIVERY: workflow publishes; live `/es/`; Pages source = GitHub Actions. Live GitHub Pages publication and Pages-source confirmation pending — not produced in this bounded attempt.
+- [x] 1.16 Workflow publishes; live `/es/` verified; Pages source set to GitHub Actions. Workflow run `33988462241` (commit `9e6a5f9`) succeeded end-to-end. Pages source was changed from `legacy` to `workflow` via `PUT /repos/josepintado24/josepintado24.github.io/pages` with `build_type=workflow`. Live verification: `https://josepintado24.github.io/` redirects once to `/es/`; `/es/` renders the Spanish hero, social links, contact (mail and tel), honest CV pending notice, and the footer; `/en/` renders the English mirror; `sitemap-index.xml` lists `/`, `/en/`, `/es/` with hreflang alternates.
 - [x] 1.17 Record `PendingAsset` inventory (none shipped)
 - [x] 1.18 `size:exception` approved by maintainer (up to 4500 total changed lines). Complete candidate = 4054 lines; the generated `pnpm-lock.yaml` (3480 lines, ~85.8% of the complete candidate) dominates because the lockfile cannot be split from the Astro workspace it locks. Authored implementation = 399 lines (under 400-line `review_budget_lines`); SDD evidence = 175 lines. Post-build re-verification (this attempt) recorded in `apply-progress.md` `### Build / output`. Prior failed evidence revision: `sha256:b078147d36aa91ea3a6174dca1b6ce0b1e563a6321819e258d1df82fcef75af9`.
 
