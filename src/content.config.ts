@@ -16,6 +16,7 @@ const profileSchema = z.object({
   cvPdf: z.string().optional(),
   cvLabel: z.string().optional(),
   cvDetail: z.string().optional(),
+  cvDownloadName: z.string().optional(),
 });
 
 const caseStudySchema = z.object({
@@ -87,5 +88,5 @@ const credentials = defineCollection({
 });
 
 export const collections = { site, profile, caseStudies, education, credentials };
-export const APPROVED_CASE_STUDY_SLUGS = ['movistar', 'crepier', 'radioshack', 'desly', 'cepre-uni'] as const;
+export const APPROVED_CASE_STUDY_SLUGS = ['movistar', 'crepier', 'radioshack', 'desly', 'cepre-uni', 'lactea'] as const;
 export const APPROVED_EDUCATION_SLUGS = ['upc', 'esan', 'cibertec'] as const;

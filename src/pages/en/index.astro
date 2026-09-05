@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Contact from '../../components/Contact.astro';
 import PendingAsset from '../../components/PendingAsset.astro';
+import TechBadge from '../../components/TechBadge.astro';
 import { getProfile, getCaseStudies, getEducation, getCredentials } from '../../lib/content';
 import { pending } from '../../lib/assets';
 import { canonical } from '../../lib/seo';
@@ -16,7 +17,7 @@ const credentialsList = await getCredentials('en');
 <BaseLayout locale="en" title="José Luis Pintado Vásquez — Portfolio" description="Bilingual portfolio" path="/">
   <Hero locale="en" headline={profile.headline} summary={profile.summary} />
   {profile.cvPdf ? (
-    <a class="cv-download" href={profile.cvPdf} download type="application/pdf" rel="noopener">
+    <a class="cv-download" href={profile.cvPdf} download={profile.cvDownloadName} type="application/pdf" rel="noopener">
       <span class="cv-download__label">{profile.cvLabel ?? 'Download résumé'}</span>
       <span class="cv-download__detail">{profile.cvDetail ?? ''}</span>
     </a>
@@ -40,6 +41,11 @@ const credentialsList = await getCredentials('en');
                 <span aria-hidden="true">·</span>
                 <span>{study.period}</span>
               </p>
+              {study.stack.length > 0 && (
+                <div class="case-card__stack" aria-label="Stack">
+                  {study.stack.slice(0, 6).map((t) => <TechBadge name={t} size="sm" />)}
+                </div>
+              )}
             </a>
           </li>
         ))}
@@ -63,6 +69,11 @@ const credentialsList = await getCredentials('en');
                 <span aria-hidden="true">·</span>
                 <span>{study.period}</span>
               </p>
+              {study.stack.length > 0 && (
+                <div class="case-card__stack" aria-label="Stack">
+                  {study.stack.slice(0, 6).map((t) => <TechBadge name={t} size="sm" />)}
+                </div>
+              )}
             </a>
           </li>
         ))}

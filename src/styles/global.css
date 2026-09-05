@@ -43,8 +43,8 @@ main { max-width: 70ch; margin: 0 auto; padding: var(--space-8) var(--space-6); 
 .case-study__meta [aria-hidden] { color: #374151; }
 .case-study__audience { padding: 1pt 6pt; border: 1px solid var(--color-amber); border-radius: 99px; color: var(--color-amber); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .08em; }
 .case-study__summary { margin: 0; }
-.case-study__stack { list-style: none; padding: 0; margin: 0; display: flex; gap: var(--space-2); flex-wrap: wrap; }
-.case-study__stack li { padding: 2pt 8pt; border: 1px solid #1f2937; border-radius: 99px; font-size: 0.8rem; color: var(--color-muted); }
+.case-study__stack { display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center; }
+.case-card__stack { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin: 0; }
 .case-study__back { margin: 0; }
 .lang-switch--inline { gap: var(--space-2); }
 .education, .credentials { display: grid; gap: var(--space-4); }

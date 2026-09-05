@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TechBadge from '../../../components/TechBadge.astro';
 import { getCaseStudies, getCaseStudyDetail, getCaseStudyPair } from '../../../lib/content';
 import { locales, type Locale } from '../../../lib/i18n';
 import { canonical, SITE_ORIGIN } from '../../../lib/seo';
@@ -98,9 +99,9 @@ const jsonLd = {
 
     <section aria-labelledby="case-stack">
       <h2 id="case-stack">Stack</h2>
-      <ul class="case-study__stack">
-        {detail.stack.map((t) => <li>{t}</li>)}
-      </ul>
+      <div class="case-study__stack">
+        {detail.stack.map((t) => <TechBadge name={t} />)}
+      </div>
     </section>
 
     {detail.pendingAssets.length > 0 && (

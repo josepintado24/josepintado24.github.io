@@ -29,6 +29,7 @@ export interface CaseStudySummary {
   audience: 'commerce' | 'education' | 'both';
   confidential: boolean;
   pendingAssets: string[];
+  stack: string[];
 }
 
 export interface CaseStudyDetail extends CaseStudySummary {
@@ -50,6 +51,7 @@ function summarize(entry: { data: any }): CaseStudySummary {
     audience: entry.data.audience,
     confidential: entry.data.confidential ?? false,
     pendingAssets: entry.data.pendingAssets ?? [],
+    stack: entry.data.stack ?? [],
   };
 }
 

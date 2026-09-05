@@ -1,0 +1,49 @@
+{
+  "locale": "es",
+  "slug": "lactea",
+  "title": "Láctea S.A. — Sitio corporativo en WordPress",
+  "summary": "Sitio institucional de Láctea S.A., laboratorio de biotecnología reproductiva bovina en Virú, Perú. Construido sobre WordPress con tema custom 'sembryo', orientado a SEO local, formulario de contacto y red de distribuidores.",
+  "role": "Desarrollador Web (WordPress)",
+  "period": "fechas pendientes de confirmación",
+  "client": "Láctea S.A.",
+  "audience": "commerce",
+  "context": "Láctea S.A. es el primer laboratorio de biotecnología reproductiva en Perú, dedicado a la producción in-vitro en bovinos. El sitio público comunica servicios (OPU-IVF, transferencia de embriones, laboratorio microbiológico, pasantías), productos (genética animal, semen, lácteos Mumu, carne Bravio) y la red de distribuidores a nivel nacional. Construido sobre WordPress con un tema a medida llamado 'sembryo', pensado para SEO local, claridad editorial y conversión vía WhatsApp y formulario de contacto.",
+  "challenges": [
+    "Modelar un dominio mixto (biotecnología + catálogo de productos + red de distribuidores) en una jerarquía de páginas clara para SEO.",
+    "Construir un tema custom que cargue rápido en conexiones móviles del campo sin sacrificar la galería visual.",
+    "Integrar el formulario de contacto, el botón flotante de WhatsApp y la página de distribuidores con un mapa operativo por regiones.",
+    "Mantener la administración interna simple para que el equipo de Láctea actualice servicios, productos y noticias sin depender de un desarrollador."
+  ],
+  "approach": [
+    "WordPress con tema custom 'sembryo': estructura propia de plantillas, sin dependencia de temas comerciales.",
+    "Bloques reutilizables y páginas administrables (servicios, productos, noticias, distribuidores) sobre el editor nativo.",
+    "jQuery para los componentes interactivos del front (banner, mapas y formulario) con degradado progresivo.",
+    "SweetAlert para confirmar envíos del formulario y mensajes de WhatsApp sin saltos de página.",
+    "Pipelines editoriales simples para que el equipo suba contenido sin tocar el repositorio."
+  ],
+  "outcomes": [
+    "lactea.com.pe en producción con secciones administrables por el equipo interno.",
+    "Catálogo visible de servicios y productos con rutas claras desde SEO local.",
+    "Formulario de contacto y CTA de WhatsApp integrados y operativos.",
+    "Página de distribuidores con mapa referencial del Perú.",
+    "Stack, fechas exactas y métricas finales pendientes de validación antes de publicarlas."
+  ],
+  "stack": [
+    "WordPress",
+    "PHP",
+    "JavaScript",
+    "jQuery",
+    "HTML",
+    "CSS",
+    "SweetAlert2",
+    "LiteSpeed"
+  ],
+  "pendingAssets": [
+    "Fechas exactas del engagement y rol desempeñado",
+    "Capturas del panel editorial y del tema 'sembryo' en uso",
+    "Métricas de tráfico, consultas y conversiones por WhatsApp/formulario",
+    "Listado completo de plugins custom y personalizaciones del tema",
+    "Logos o material gráfico autorizado por Láctea para publicar"
+  ],
+  "confidential": true
+}

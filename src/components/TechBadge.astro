@@ -1,0 +1,121 @@
+---
+// TechBadge.astro — small inline icon + label for a technology.
+// Falls back to a coloured text pill for technologies without an inline SVG.
+type IconName =
+  | 'magento' | 'wordpress' | 'php' | 'java' | 'react' | 'angular' | 'nextjs'
+  | 'laravel' | 'javascript' | 'typescript' | 'html5' | 'css3' | 'less'
+  | 'knockout' | 'requirejs' | 'jquery' | 'mysql' | 'git' | 'docker'
+  | 'elasticsearch' | 'redis' | 'varnish' | 'gtm' | 'ga' | 'litespeed'
+  | 'sweetalert' | 'html' | 'css';
+
+interface Props {
+  name: string;
+  size?: 'sm' | 'md';
+}
+
+const { name, size = 'md' } = Astro.props as Props;
+const key = name.toLowerCase().replace(/[^a-z0-9]/g, '') as IconName;
+
+const palette: Record<string, string> = {
+  magento: '#ee672f',
+  wordpress: '#21759b',
+  php: '#777bb4',
+  java: '#f89820',
+  react: '#61dafb',
+  angular: '#dd0031',
+  nextjs: '#000000',
+  laravel: '#ff2d20',
+  javascript: '#f7df1e',
+  typescript: '#3178c6',
+  html5: '#e34f26',
+  html: '#e34f26',
+  css3: '#1572b6',
+  css: '#1572b6',
+  less: '#1d365d',
+  knockout: '#e42e16',
+  requirejs: '#0863b0',
+  jquery: '#0769ad',
+  mysql: '#4479a1',
+  git: '#f05033',
+  docker: '#2496ed',
+  elasticsearch: '#005571',
+  redis: '#dc382d',
+  varnish: '#a82c2c',
+  gtm: '#246fdb',
+  ga: '#f9ab00',
+  litespeed: '#ffae00',
+  sweetalert: '#ff5e57',
+};
+
+const color = palette[key] ?? '#6b7280';
+
+const swatches: Record<string, string> = {
+  magento: 'M5 4 L19 4 L19 14 L12 14 L5 21 Z',
+  wordpress: 'M12 4 a8 8 0 1 0 0.001 0',
+  php: 'M5 6 H10 a4 4 0 0 1 0 8 H8 V18 H5 Z M8 8 V12 H10 a2 2 0 0 0 0 -4 Z',
+  java: 'M5 7 c2 -3 8 -3 10 0 c1 2 0 4 -1 5 c-2 2 -6 2 -8 0 c-1 -1 -2 -3 -1 -5 Z M7 14 H13 a1 1 0 0 1 0 2 H7 a1 1 0 0 1 0 -2 Z M8 17 H12 a1 1 0 0 1 0 2 H8 a1 1 0 0 1 0 -2 Z',
+  react: 'M12 4 a2 2 0 1 0 0.001 0 M5 12 a7 5 0 1 0 14 0 a7 5 0 1 0 -14 0 M12 7 a5 7 0 1 0 0.001 0',
+  angular: 'M12 4 L19 6 L17 17 L12 20 L7 17 L5 6 Z M12 7 L9 14 H11 L11.5 12.5 H12.5 L13 14 H15 Z',
+  nextjs: 'M5 5 H19 V19 H5 Z M8 8 V16 H10 V12 L13 16 H15 L11.5 11.5 L15 8 H13 L10 11.5 V8 Z M14 8 H17 V10 H14 Z',
+  laravel: 'M5 8 H10 V12 a2 2 0 0 0 4 0 V8 H17 V12 a5 5 0 0 1 -10 0 Z',
+  javascript: 'M5 5 H19 V19 H5 Z M8 9 V14 a2 2 0 0 0 4 0 V9 H10 V14 a0 0.001 0 0 0 0 0 Z M13 9 V14 a2 2 0 0 0 4 0 V9 H15 V14 a0 0.001 0 0 0 0 0 Z',
+  typescript: 'M5 5 H19 V19 H5 Z M7 8 H13 V10 H11 V18 H9 V10 H7 Z M14 8 H17 V10 H14 Z M14 11 H17 V13 H14 Z M14 14 H17 V16 H14 Z',
+  html5: 'M5 4 H19 L17 19 L12 21 L7 19 Z M9 8 H17 L17 10 H11 L11.3 12 H17 L16 17 L12 19 L8 17 L7.5 14 H9.5 L9.8 16 L12 17 L14.2 16 L14.5 13 H7 Z',
+  html: 'M5 4 H19 L17 19 L12 21 L7 19 Z M9 8 H17 L17 10 H11 L11.3 12 H17 L16 17 L12 19 L8 17 L7.5 14 H9.5 L9.8 16 L12 17 L14.2 16 L14.5 13 H7 Z',
+  css3: 'M5 4 H19 L17 19 L12 21 L7 19 Z M9 8 H16 L15.8 10 H11 L11.3 12 H15.5 L15.3 14 H11 L11 17 L12 18 L14.5 17 L14.7 15 H16.8 L16.4 19 L12 21 L7.6 19 L9 8 Z',
+  css: 'M5 4 H19 L17 19 L12 21 L7 19 Z M9 8 H16 L15.8 10 H11 L11.3 12 H15.5 L15.3 14 H11 L11 17 L12 18 L14.5 17 L14.7 15 H16.8 L16.4 19 L12 21 L7.6 19 L9 8 Z',
+  less: 'M5 7 c4 -3 10 -3 14 0 c-2 1 -5 1 -7 0 c-2 1 -5 1 -7 0 Z M5 12 c4 -3 10 -3 14 0 c-2 1 -5 1 -7 0 c-2 1 -5 1 -7 0 Z M5 17 c4 -3 10 -3 14 0 c-2 1 -5 1 -7 0 c-2 1 -5 1 -7 0 Z',
+  knockout: 'M5 12 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M12 9 V12 H15 V15 H12 V18 H9 V15 H6 V12 H9 V9 Z',
+  requirejs: 'M5 8 L12 5 L19 8 V11 L12 14 L5 11 Z M5 13 L12 16 L19 13 V16 L12 19 L5 16 Z',
+  jquery: 'M5 6 H8 V10 H12 V6 H15 V18 H12 V14 H8 V18 H5 Z M16 6 H19 V8 H16 Z M16 9 H19 V11 H16 Z M16 12 H19 V14 H16 Z',
+  mysql: 'M5 5 H19 V19 H5 Z M7 9 a5 5 0 0 1 10 0 V14 a1 1 0 0 1 -2 0 V10 a3 3 0 0 0 -6 0 V14 a1 1 0 0 1 -2 0 Z',
+  git: 'M5 12 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 M11 8 H13 V13 H11 Z M11 14 H13 V16 H11 Z',
+  docker: 'M5 9 H17 V14 H5 Z M9 7 H13 V9 H9 Z M13 11 H17 a2 2 0 0 1 -2 2 H5 a2 2 0 0 1 0 -2 Z',
+  elasticsearch: 'M5 5 H19 V19 H5 Z M8 8 V16 H10 V13 L13 16 H16 L12 12 L16 8 H13 L10 11 V8 Z',
+  redis: 'M5 9 L12 5 L19 9 L12 13 Z M5 13 L12 17 L19 13 L12 11 Z',
+  varnish: 'M5 5 H19 V19 H5 Z M7 7 V17 H10 V7 Z M12 7 H17 V9 H14 V17 H12 Z',
+  gtm: 'M5 5 H19 V19 H5 Z M7 8 H17 V10 H13 V18 H11 V10 H7 Z',
+  ga: 'M5 5 H19 V19 H5 Z M12 5 a7 7 0 1 0 0.001 0 M12 9 a3 3 0 1 1 0.001 0 M14 9 H17 V19 H14 Z',
+  litespeed: 'M5 7 L12 4 L19 7 L17 12 L12 19 L7 12 Z M12 9 L10 11 L12 14 L14 11 Z',
+  sweetalert: 'M12 4 a8 8 0 1 0 0.001 0 M11 7 H13 V13 H11 Z M11 14 H13 V16 H11 Z',
+};
+
+const d = swatches[key];
+const isKnown = !!d;
+const fontSize = size === 'sm' ? 11 : 13;
+const iconSize = size === 'sm' ? 14 : 18;
+---
+<span class="tech-badge" data-known={String(isKnown)} style={`--tech-color: ${color};`}>
+  {isKnown && (
+    <svg class="tech-badge__icon" width={iconSize} height={iconSize} viewBox="0 0 24 24" aria-hidden="true">
+      <path d={d} fill="currentColor" />
+    </svg>
+  )}
+  <span class="tech-badge__label" style={`font-size:${fontSize}px;`}>{name}</span>
+</span>
+<style>
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--tech-color) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--tech-color) 28%, transparent);
+    color: var(--color-fg);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .tech-badge[data-known="false"] {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  .tech-badge__icon {
+    color: var(--tech-color);
+    flex: 0 0 auto;
+  }
+  .tech-badge__label {
+    color: var(--color-fg);
+    font-weight: 500;
+  }
+</style>

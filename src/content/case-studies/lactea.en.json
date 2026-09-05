@@ -1,0 +1,49 @@
+{
+  "locale": "en",
+  "slug": "lactea",
+  "title": "Láctea S.A. — WordPress corporate site",
+  "summary": "Institutional site for Láctea S.A., a bovine reproductive biotechnology lab in Virú, Peru. Built on WordPress with a custom 'sembryo' theme, focused on local SEO, contact conversion, and a nationwide distributor network.",
+  "role": "Web Developer (WordPress)",
+  "period": "dates pending confirmation",
+  "client": "Láctea S.A.",
+  "audience": "commerce",
+  "context": "Láctea S.A. is Peru's first reproductive biotechnology lab, dedicated to bovine in-vitro production. The public site communicates services (OPU-IVF, embryo transfer, microbiology lab, internships), products (animal genetics, semen, Mumu dairy, Bravio meat) and a nationwide distributor network. Built on WordPress with a custom theme called 'sembryo', focused on local SEO, editorial clarity, and conversion via WhatsApp and a contact form.",
+  "challenges": [
+    "Model a mixed domain (biotechnology + product catalog + distributor network) into a clear page hierarchy for SEO.",
+    "Build a custom theme that loads fast on field-mobile connections without sacrificing the visual gallery.",
+    "Wire the contact form, the floating WhatsApp button, and the distributor page into an operational regional map.",
+    "Keep the back-office simple enough that Láctea's team can update services, products, and news without depending on a developer."
+  ],
+  "approach": [
+    "WordPress with a custom 'sembryo' theme: hand-rolled template structure, no commercial theme lock-in.",
+    "Reusable blocks and admin-editable pages (services, products, news, distributors) on top of the native editor.",
+    "jQuery powering the front-end interactive components (banner, maps, form) with progressive enhancement.",
+    "SweetAlert for form submissions and WhatsApp handoff without page reloads.",
+    "Lean editorial workflows so the team can publish content without touching the repository."
+  ],
+  "outcomes": [
+    "lactea.com.pe in production with sections the in-house team can update.",
+    "Visible catalog of services and products with clear routes from local SEO.",
+    "Contact form and WhatsApp CTA integrated and operational.",
+    "Distributors page with a referential map of Peru.",
+    "Exact stack, dates, and final metrics pending validation before publishing."
+  ],
+  "stack": [
+    "WordPress",
+    "PHP",
+    "JavaScript",
+    "jQuery",
+    "HTML",
+    "CSS",
+    "SweetAlert2",
+    "LiteSpeed"
+  ],
+  "pendingAssets": [
+    "Exact dates of the engagement and the role performed",
+    "Screenshots of the editorial backend and the 'sembryo' theme in use",
+    "Traffic, inquiry, and WhatsApp/form conversion metrics",
+    "Full list of custom plugins and theme customizations",
+    "Logos or graphics authorized by Láctea for publication"
+  ],
+  "confidential": true
+}
