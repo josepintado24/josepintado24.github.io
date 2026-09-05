@@ -83,10 +83,10 @@ Dependencies: Slice 1 merged.
 
 Dependencies: Slices 1-3 merged.
 
-- [ ] 4.1 RED: unpaired entry → build fails
-- [ ] 4.2 `src/content/{es,en}/{education,credentials}.{json,md}` (typed)
-- [ ] 4.3 Render on home + detail; per-locale parity
-- [ ] 4.4 GREEN: `pnpm build`; pending credentials show `PendingAsset`; live URLs 200
+- [x] 4.1 RED (recorded): removing either ES or EN for any education or credential entry fails the build with `Credential "<slug>" missing locale pair: en is absent` / same for education.
+- [x] 4.2 `src/content/{education,credentials}/*.json` (typed). Education schema: locale, slug, institution, title, period, status (`in-progress | completed`), description, pendingAssets. Credentials schema: locale, slug, title, issuer, year (1900-2100), hours, summary, optional pdf, pendingAssets. Both approved-slug guards in place.
+- [x] 4.3 Home renders four parallel sections (commerce cases, education cases, education degrees, credentials). Detail routes at `/{es,en}/education/{slug}/` and `/{es,en}/credentials/{slug}/` with locale-stable slugs, hreflang alternates, JSON-LD via BaseLayout. Per-locale parity enforced by the locale-pair validator.
+- [x] 4.4 GREEN: `pnpm build` succeeds (40 pages); all credentials without a supplied PDF render `PendingAsset` with explicit pending reason; live URLs return HTTP/2 200.
 
 ## Phase 5: Slice 5 — Credential Downloads (PR 5)
 
