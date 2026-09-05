@@ -92,11 +92,11 @@ Dependencies: Slices 1-3 merged.
 
 Dependencies: Slice 4 merged; user supplies `/cv.pdf` + certs.
 
-- [ ] 5.1 RED: absent `/cv.pdf` → home shows pending, link inactive (record)
-- [ ] 5.2 `public/cv.pdf` + per-credential PDFs; update `assets.ts`
-- [ ] 5.3 GREEN: `pnpm build`; HEAD/GET on each asset = 200
-- [ ] 5.4 Live: josepintado24.github.io/cv.pdf serves correctly
-- [ ] 5.5 Re-run reduced-motion + bilingual checks post-deploy
+- [x] 5.1 RED (recorded): before commit, absent `/cv.pdf` rendered the PendingAsset notice on `/es/` and `/en/` (build verified locally; deliverable behavior reproduced the documented contract).
+- [x] 5.2 `public/cv.pdf` (bilingual, ES then EN, A4, 6 pages, 412 KB) generated via headless Chrome from `public/cv.html`; `assets.ts` extended through `profile.cvPdf`/`cvLabel`/`cvDetail`; per-credential PDFs are out of scope until the user supplies them.
+- [x] 5.3 GREEN: `pnpm build` succeeds; `HEAD /cv.pdf` returns 200 with `content-type: application/pdf`; `HEAD /cv.html` returns 200; both `/es/` and `/en/` render the active `<a class="cv-download" href="/cv.pdf">` link and the PendingAsset fallback is no longer present.
+- [x] 5.4 Live: `curl -sI https://josepintado24.github.io/cv.pdf` returns HTTP/2 200 with `content-type: application/pdf` and `last-modified: Sat, 05 Sep 2026 21:43:56 GMT`. The home pages expose the link in both locales; deploy workflow run `33993861060` succeeded end-to-end on commit `06c1095`.
+- [x] 5.5 Re-run reduced-motion + bilingual checks post-deploy: home still emits no animation when `prefers-reduced-motion: reduce` (the `MotionGuard` script is intact); both locales resolve at canonical origin with correct `<html lang>` and `hreflang` alternates; the new `.cv-download` style honors `prefers-reduced-motion` only through the same global guard (no extra animation introduced).
 
 ## Cross-slice rules
 
