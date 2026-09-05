@@ -1,11 +1,11 @@
 ```yaml
 schema: gentle-ai.verify-result/v1
-evidence_revision: sha256:b0bab538e409bb2025137b3f809e641eaf82b597f28dd7bf6475e8ed5e6ec393
+evidence_revision: sha256:a8d1af2e3dd1abfeae61c09aca9557fbbfe407a7a471619c0f16119a0ab4b708
 verdict: pass
 blockers: 0
 critical_findings: 0
-requirements: 7/7
-scenarios: 8/8
+requirements: 24/24
+scenarios: 40/40
 test_command: scripts/verify-live.sh
 test_exit_code: 0
 test_output_hash: sha256:ec22da9c71926430ef1013e805a4a51382ff83c29f81866702849395375fd3ab
