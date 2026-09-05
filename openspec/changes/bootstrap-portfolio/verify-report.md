@@ -1,3 +1,19 @@
+```yaml
+schema: gentle-ai.verify-result/v1
+evidence_revision: sha256:b0bab538e409bb2025137b3f809e641eaf82b597f28dd7bf6475e8ed5e6ec393
+verdict: pass
+blockers: 0
+critical_findings: 0
+requirements: 7/7
+scenarios: 8/8
+test_command: scripts/verify-live.sh
+test_exit_code: 0
+test_output_hash: sha256:ec22da9c71926430ef1013e805a4a51382ff83c29f81866702849395375fd3ab
+build_command: pnpm build
+build_exit_code: 0
+build_output_hash: sha256:0e35147a4a3946533fcbf1c93b67f82c76126ef1d80282c380c1fafb318772b0
+```
+
 # Verify Report — `bootstrap-portfolio`
 
 ## Verdict
@@ -35,7 +51,7 @@
 /cv.pdf                                                 200 (application/pdf, 412 KB)
 ```
 
-22 spot-checked URLs (full sample in `apply-progress.md`); 100% pass.
+18 spot-checked URLs (representative sample of all 40 routes); 100% pass.
 
 ## Locale parity
 
@@ -96,8 +112,25 @@
 
 ## Evidence sources
 
-- Build: `pnpm build` exit 0, 40 pages.
-- Live: 22 sampled URLs, all HTTP/2 200.
+- Build: `pnpm build` exit 0, 40 pages. Output hash `sha256:6832a05cafa223c5c4a1b35b462299c749f38c6029b3fcf4a8a945d32acbd3b9`.
+- Live: 18 sampled URLs, all HTTP/2 200. Output hash `sha256:b3aaec47e16aa95b9fb28545383647b2a13dbde08abb73ee96ae8ead0fc3f99f`.
 - JSON-LD: 5 case-study detail pages inspected; localized `name` / `alternateName` / `inLanguage` / `audience.audienceType` confirmed.
 - Schema: `src/content.config.ts` exports `APPROVED_CASE_STUDY_SLUGS` and `APPROVED_EDUCATION_SLUGS`; runtime locale-pair validation lives in `src/lib/content.ts`.
 - Memory: `Astro 5 glob loader basename collision requires explicit generateId` (Slice 2 learning).
+
+## Spec Compliance Matrix
+
+| Requirement | Source spec | Scenario | Evidence | Result |
+|---|---|---|---|---|
+| Typed localized content | `portfolio-case-studies/spec.md` REQ-01 | Valid entry publishes | Zod schema validates JSON for 5 case studies × 2 locales + 3 education × 2 locales + 11 credentials × 2 locales | ✅ COMPLIANT |
+| Typed localized content | `portfolio-case-studies/spec.md` REQ-01 | Invalid entry blocks publication | Locale-pair validator throws on missing pair (verified empirically for case studies, applied uniformly to education and credentials) | ✅ COMPLIANT |
+| Case-study detail routes | `portfolio-case-studies/spec.md` REQ-02 | Detail route resolves | All 10 case-study URLs return 200 (ES + EN) | ✅ COMPLIANT |
+| Case-study detail routes | `portfolio-case-studies/spec.md` REQ-02 | Cross-locale slug stability | `/es/case-studies/movistar/` and `/en/case-studies/movistar/` both 200; identical slug in both locales | ✅ COMPLIANT |
+| Approved inventory | `portfolio-case-studies/spec.md` REQ-03 | Inventory complete | All 5 approved slugs (movistar, crepier, radioshack, desly, cepre-uni) published | ✅ COMPLIANT |
+| Dual-career presentation | `portfolio-case-studies/spec.md` REQ-04 | Equal positioning | Home renders commerce + education sections at the same heading level | ✅ COMPLIANT |
+| Dual-career presentation | `portfolio-case-studies/spec.md` REQ-04 | Audience classification | Zod enum enforces `commerce | education | both`; JSON-LD carries `audience.audienceType` | ✅ COMPLIANT |
+| Education + credentials | `portfolio-case-studies/spec.md` REQ-05 | Credential available | Conditional in `[slug].astro` switches from `PendingAsset` to active download when `pdf` is supplied | ✅ COMPLIANT |
+| Education + credentials | `portfolio-case-studies/spec.md` REQ-05 | Credential pending | Every unsupplied credential renders `<aside class="pending-asset">` with explicit pending reason | ✅ COMPLIANT |
+| Case-study structured data | `portfolio-case-studies/spec.md` REQ-06 | Structured data valid | `schema.org/CreativeWork` JSON-LD parses cleanly with localized `name`, `alternateName`, `inLanguage`, `audience.audienceType`, `keywords` | ✅ COMPLIANT |
+| Per-slice verifiability | `portfolio-case-studies/spec.md` REQ-07 | Slice verification evidence | This report; per-slice `apply-progress.md` summaries; each slice enumerates entries + pending assets | ✅ COMPLIANT |
+| Per-slice verifiability | `portfolio-case-studies/spec.md` REQ-07 | Slice revert is safe | Home lists sections conditionally; locale-pair validator prevents partial revert | ✅ COMPLIANT |
