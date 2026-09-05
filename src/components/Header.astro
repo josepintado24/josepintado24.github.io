@@ -1,0 +1,14 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import SocialLinks from './SocialLinks.astro';
+import type { Locale } from '../lib/i18n';
+interface Props { locale: Locale; site: { title: string }; profile: { github: string; linkedin: string } }
+const { locale, site, profile } = Astro.props;
+---
+<header class="site-header">
+  <a class="brand" href={`/${locale}/`}>{site.title}</a>
+  <nav aria-label="Principal">
+    <LanguageSwitcher locale={locale} />
+    <SocialLinks github={profile.github} linkedin={profile.linkedin} />
+  </nav>
+</header>

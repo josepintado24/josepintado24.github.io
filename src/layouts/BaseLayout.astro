@@ -1,0 +1,42 @@
+---
+import { getSite, getProfile } from '../lib/content';
+import { canonical, personJsonLd } from '../lib/seo';
+import { locales, type Locale } from '../lib/i18n';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MotionGuard from '../components/MotionGuard.astro';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+interface Props { locale: Locale; title: string; description: string; path?: string }
+const { locale, title, description, path = '/' } = Astro.props;
+const site = await getSite(locale);
+const profile = await getProfile(locale);
+const url = canonical(path, locale);
+const personLd = JSON.stringify(personJsonLd({ author: site.author, linkedin: profile.linkedin, github: profile.github }));
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    {locales.map((alt) => <link rel="alternate" hreflang={alt} href={canonical(path, alt)} />)}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:locale" content={locale} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={personLd} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+    <Header locale={locale} site={site} profile={profile} />
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <Footer locale={locale} site={site} />
+    <MotionGuard />
+  </body>
+</html>

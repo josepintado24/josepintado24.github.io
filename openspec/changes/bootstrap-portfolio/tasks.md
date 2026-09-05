@@ -32,30 +32,30 @@ Dependencies: none. Blocks slices 2-5.
 
 ### RED baselines
 
-- [ ] 1.1 RED: no `astro.config.mjs` → `pnpm install` fails (record)
-- [ ] 1.2 RED: no root config → `/` 404 (record)
-- [ ] 1.3 RED: no pair validation → single-locale publishes (record)
+- [x] 1.1 RED: no `astro.config.mjs` → `pnpm install` fails (record)
+- [x] 1.2 RED: no root config → `/` 404 (record)
+- [x] 1.3 RED: no pair validation → single-locale publishes (record)
 
 ### GREEN
 
-- [ ] 1.4 `package.json`, `pnpm-lock.yaml`, `astro.config.mjs` (i18n `es`/`en`, `defaultLocale: 'es'`, prefixed default, `site`, no `base`), `tsconfig.json`
-- [ ] 1.5 `.github/workflows/deploy.yml` (`contents: read`, `pages: write`, `id-token: write`)
-- [ ] 1.6 `public/robots.txt`, favicon, `404.html`
-- [ ] 1.7 `src/content.config.ts` (Zod; locale-pair + audience validation)
-- [ ] 1.8 Seed `src/content/{es,en}/{profile,site}.{json,md}` (approved contact)
-- [ ] 1.9 `src/lib/{i18n,content,seo,assets}.ts` (locale parse, sitemap, `PendingAsset`)
-- [ ] 1.10 `src/layouts/BaseLayout.astro` (skip link, `<html lang>`, `hreflang`, JSON-LD)
-- [ ] 1.11 `src/components/{Header,Footer,LanguageSwitcher,Hero,Contact,SocialLinks,PendingAsset,InfinitySignature,MotionGuard}.astro`
-- [ ] 1.12 `src/pages/{es,en}/index.astro`; no root `index.astro`
-- [ ] 1.13 `src/styles/{tokens,global}.css` + `src/scripts/motion.ts` (gated WAAPI, solid fallback)
+- [x] 1.4 `package.json`, `pnpm-lock.yaml`, `astro.config.mjs` (i18n `es`/`en`, `defaultLocale: 'es'`, prefixed default, `site`, no `base`), `tsconfig.json`
+- [x] 1.5 `.github/workflows/deploy.yml` (`contents: read`, `pages: write`, `id-token: write`)
+- [x] 1.6 `public/robots.txt`, favicon, `404.html`
+- [x] 1.7 `src/content.config.ts` (Zod; locale-pair + audience validation)
+- [x] 1.8 Seed `src/content/{es,en}/{profile,site}.{json,md}` (approved contact)
+- [x] 1.9 `src/lib/{i18n,content,seo,assets}.ts` (locale parse, sitemap, `PendingAsset`)
+- [x] 1.10 `src/layouts/BaseLayout.astro` (skip link, `<html lang>`, `hreflang`, JSON-LD)
+- [x] 1.11 `src/components/{Header,Footer,LanguageSwitcher,Hero,Contact,SocialLinks,PendingAsset,InfinitySignature,MotionGuard}.astro`
+- [x] 1.12 `src/pages/index.astro` as the minimal root redirect host, plus `src/pages/{es,en}/index.astro` locale pages; Astro runtime requires the root host when `redirectToDefaultLocale: true`, as documented in the design deviation.
+- [x] 1.13 `src/styles/{tokens,global}.css` + `src/scripts/motion.ts` (gated WAAPI, solid fallback)
 
 ### Verify slice 1
 
-- [ ] 1.14 GREEN: `pnpm build`; `/`→`/es/` once; `/en/`; both `lang` correct
-- [ ] 1.15 GREEN: tab skip link; focus visible; reduced-motion silent; contrast passes
-- [ ] 1.16 GREEN: workflow publishes; live `/es/`; Pages source = GitHub Actions
-- [ ] 1.17 Record `PendingAsset` inventory (none shipped)
-- [ ] 1.18 If lines > 400 → `size:exception`; else merge to main
+- [x] 1.14 GREEN: `pnpm build`; `/`→`/es/` once; `/en/`; both `lang` correct
+- [x] 1.15 GREEN: tab skip link; focus visible; reduced-motion silent; contrast passes
+- [ ] 1.16 PENDING DELIVERY: workflow publishes; live `/es/`; Pages source = GitHub Actions. Live GitHub Pages publication and Pages-source confirmation pending — not produced in this bounded attempt.
+- [x] 1.17 Record `PendingAsset` inventory (none shipped)
+- [x] 1.18 `size:exception` approved by maintainer (up to 4500 total changed lines). Complete candidate = 4054 lines; the generated `pnpm-lock.yaml` (3480 lines, ~85.8% of the complete candidate) dominates because the lockfile cannot be split from the Astro workspace it locks. Authored implementation = 399 lines (under 400-line `review_budget_lines`); SDD evidence = 175 lines. Post-build re-verification (this attempt) recorded in `apply-progress.md` `### Build / output`. Prior failed evidence revision: `sha256:b078147d36aa91ea3a6174dca1b6ce0b1e563a6321819e258d1df82fcef75af9`.
 
 ## Phase 2: Slice 2 — Commerce Studies (PR 2)
 

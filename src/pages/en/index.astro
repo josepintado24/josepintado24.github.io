@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Contact from '../../components/Contact.astro';
+import PendingAsset from '../../components/PendingAsset.astro';
+import { getProfile } from '../../lib/content';
+import { pending } from '../../lib/assets';
+const profile = await getProfile('en');
+const labels = { email: profile.email, phone: profile.phone, linkedin: 'LinkedIn', heading: 'Contact' };
+---
+<BaseLayout locale="en" title="José Luis Pintado Vásquez — Portfolio" description="Bilingual portfolio" path="/">
+  <Hero locale="en" headline={profile.headline} summary={profile.summary} />
+  <PendingAsset asset={pending('CV / Résumé', 'Pending: /cv.pdf has not been published yet.')} />
+  <Contact email={profile.email} phone={profile.phone} linkedin={profile.linkedin} labels={labels} />
+</BaseLayout>

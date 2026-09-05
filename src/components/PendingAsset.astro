@@ -1,0 +1,9 @@
+---
+import type { PendingAssetContract } from '../lib/assets';
+interface Props { asset: PendingAssetContract }
+const { asset } = Astro.props;
+const id = `pending-${Math.random().toString(36).slice(2, 8)}`;
+---
+<aside class="pending-asset" role="note" aria-labelledby={id} data-status={asset.status}>
+  <p id={id}><strong>{asset.assetName}</strong> · <span>{asset.pendingLabel}</span></p>
+</aside>

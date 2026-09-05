@@ -1,0 +1,8 @@
+---
+import type { Locale } from '../lib/i18n';
+interface Props { locale: Locale; site: { author: string } }
+const { locale, site } = Astro.props;
+---
+<footer class="site-footer">
+  <p>© {new Date().getFullYear()} {site.author} · {locale.toUpperCase()}</p>
+</footer>

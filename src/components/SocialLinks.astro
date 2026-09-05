@@ -1,0 +1,8 @@
+---
+interface Props { github: string; linkedin: string }
+const { github, linkedin } = Astro.props;
+---
+<ul class="social-links">
+  <li><a href={github} rel="me noopener">GitHub</a></li>
+  <li><a href={linkedin} rel="me noopener">LinkedIn</a></li>
+</ul>

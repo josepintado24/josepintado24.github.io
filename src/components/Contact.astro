@@ -1,0 +1,17 @@
+---
+interface Props {
+  email: string;
+  phone: string;
+  linkedin: string;
+  labels: { email: string; phone: string; linkedin: string; heading: string };
+}
+const { email, phone, linkedin, labels } = Astro.props;
+---
+<section class="contact" aria-labelledby="contact-heading">
+  <h2 id="contact-heading">{labels.heading}</h2>
+  <ul>
+    <li><a href={`mailto:${email}`}>{labels.email}</a></li>
+    <li><a href={`tel:${phone.replace(/\s+/g, '')}`}>{labels.phone}</a></li>
+    <li><a href={linkedin} rel="me noopener">{labels.linkedin}</a></li>
+  </ul>
+</section>
