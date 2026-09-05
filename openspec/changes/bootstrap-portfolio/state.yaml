@@ -80,3 +80,31 @@ notes:
   - "All five research questions are answered by primary, authoritative sources."
   - "Consequences for proposal and design are enumerated in research.md sections 'Consequence for proposal / design'."
   - "Config.yaml re-evaluation (Astro project marker, build pipeline, delivery strategy, verify commands) is the proposal phase's responsibility per exploration.md."
+
+archive:
+  status: archived
+  archived_at: "2026-09-05"
+  final_commit: "6fcbfe1"
+  verify_report: openspec/changes/bootstrap-portfolio/verify-report.md
+  archive_report: openspec/changes/bootstrap-portfolio/archive-report.md
+  tasks_total: 39
+  tasks_complete: 39
+  live_url: "https://josepintado24.github.io/"
+  slices:
+    - "slice-1-bilingual-shell-deploy (passed, evidence sha256:7a6cfb01...)"
+    - "slice-1-evidence-honesty-correction (passed)"
+    - "slice-1-final-evidence-correction (passed)"
+    - "slice-1-accounting-wording-fix (passed)"
+    - "slice-1-final-numstat-reconciliation (passed)"
+    - "slice-5-cv-pdf-and-credential-link (passed)"
+    - "slice-2-commerce-case-studies (passed)"
+    - "slice-3-education-case-studies (passed)"
+    - "slice-4-education-and-credentials (passed)"
+    - "verify-bootstrap-portfolio (passed, evidence sha256:b0bab538...)"
+  pages_live: 40
+  size_exception_used:
+    - slice: 1
+      ceiling: 4500
+      actual: 4054
+      breakdown: "3480 lockfile + 399 implementation + 175 SDD evidence"
+      authorized_by: "josepintado24"
