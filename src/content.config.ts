@@ -7,6 +7,7 @@ const audience = z.enum(['commerce', 'education', 'both']);
 const siteSchema = z.object({ locale, title: z.string(), description: z.string(), author: z.string() });
 const profileSchema = z.object({
   locale,
+  name: z.string().optional(),
   headline: z.string(),
   summary: z.string(),
   email: z.string(),

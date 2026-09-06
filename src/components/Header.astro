@@ -1,13 +1,19 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import SocialLinks from './SocialLinks.astro';
+import { detectAvatar } from '../lib/avatar';
 import type { Locale } from '../lib/i18n';
-interface Props { locale: Locale; site: { title: string }; profile: { github: string; linkedin: string } }
+interface Props { locale: Locale; site: { title: string }; profile: { github: string; linkedin: string; name: string } }
 const { locale, site, profile } = Astro.props;
+const avatar = detectAvatar();
 ---
 <header class="site-header">
   <a class="brand" href={`/${locale}/`} aria-label={`${site.title} — Inicio`}>
-    <span class="brand__mark" aria-hidden="true">∞</span>
+    {avatar.available ? (
+      <img class="brand__avatar" src={avatar.url} alt={`Foto de ${profile.name}`} width="40" height="40" loading="eager" decoding="async" />
+    ) : (
+      <span class="brand__mark" aria-hidden="true">∞</span>
+    )}
     <span class="brand__name">JLPintado</span>
   </a>
   <nav class="site-header__nav" aria-label="Principal">
@@ -15,3 +21,17 @@ const { locale, site, profile } = Astro.props;
     <SocialLinks github={profile.github} linkedin={profile.linkedin} />
   </nav>
 </header>
+<style>
+  .brand__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 1px solid var(--color-border-subtle);
+    flex: 0 0 auto;
+  }
+  .brand:hover .brand__avatar,
+  .brand:focus-visible .brand__avatar {
+    border-color: var(--color-amber);
+  }
+</style>

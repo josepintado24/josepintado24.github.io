@@ -14,7 +14,7 @@ const { locale, title, description, path = '/' } = Astro.props;
 const site = await getSite(locale);
 const profile = await getProfile(locale);
 const url = canonical(path, locale);
-const personLd = JSON.stringify(personJsonLd({ author: site.author, linkedin: profile.linkedin, github: profile.github }));
+const personLd = JSON.stringify(personJsonLd({ author: profile.name ?? site.author, linkedin: profile.linkedin, github: profile.github }));
 ---
 <!doctype html>
 <html lang={locale}>
