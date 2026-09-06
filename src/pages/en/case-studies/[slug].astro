@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import TechBadge from '../../../components/TechBadge.astro';
+import PdfPreview from '../../../components/PdfPreview.astro';
 import { getCaseStudies, getCaseStudyDetail, getCaseStudyPair } from '../../../lib/content';
 import { locales, type Locale } from '../../../lib/i18n';
 import { canonical, SITE_ORIGIN } from '../../../lib/seo';
@@ -108,17 +109,14 @@ const jsonLd = {
       <section class="case-study__documents" aria-labelledby="case-docs-heading">
         <h2 id="case-docs-heading">Documents</h2>
         <ul class="case-study__documents-list">
-          {detail.documents.map((doc) => (
-            <li class="document-actions">
-              <a class="cv-download document-actions__primary" href={doc.url} download type="application/pdf" rel="noopener">
-                <span class="cv-download__label">{doc.label}</span>
-                <span class="cv-download__detail">PDF</span>
-              </a>
-              <a class="document-actions__preview" href={doc.url} target="_blank" rel="noopener" type="application/pdf">
-                Preview
-              </a>
-            </li>
-          ))}
+          {detail.documents.map((doc) => {
+            const filename = doc.url.split('/').pop() ?? 'document.pdf';
+            return (
+              <li>
+                <PdfPreview src={doc.url} label={doc.label} downloadName={filename} downloadLabel="Download" previewLabel="Preview" closeLabel="Close preview" />
+              </li>
+            );
+          })}
         </ul>
       </section>
     )}

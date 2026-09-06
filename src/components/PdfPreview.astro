@@ -1,0 +1,311 @@
+---
+// PdfPreview.astro — Inline "Descargar" + "Vista previa" buttons.
+// Vista previa opens a native <dialog> modal with an embedded iframe.
+interface Props {
+  src: string;
+  label: string;
+  downloadName?: string;
+  downloadLabel?: string;
+  previewLabel?: string;
+  closeLabel?: string;
+}
+
+const {
+  src,
+  label,
+  downloadName,
+  downloadLabel = 'Descargar',
+  previewLabel = 'Vista previa',
+  closeLabel = 'Cerrar vista previa',
+} = Astro.props as Props;
+
+// Stable id for the dialog so each instance is uniquely addressable.
+const id = `pdf-modal-${Math.random().toString(36).slice(2, 10)}`;
+const titleId = `${id}-title`;
+const inferredName = downloadName ?? src.split('/').pop() ?? 'document.pdf';
+---
+<div class="pdf-actions">
+  <a
+    class="pdf-actions__download"
+    href={src}
+    download={inferredName}
+    type="application/pdf"
+    rel="noopener"
+  >
+    <span class="pdf-actions__primary">{downloadLabel}</span>
+    <span class="pdf-actions__secondary">{label} · PDF</span>
+  </a>
+  <button
+    type="button"
+    class="pdf-actions__preview"
+    data-pdf-preview-open={id}
+    aria-haspopup="dialog"
+  >
+    {previewLabel}
+  </button>
+</div>
+
+<dialog id={id} class="pdf-modal" aria-labelledby={titleId}>
+  <div class="pdf-modal__container" role="document">
+    <header class="pdf-modal__header">
+      <h2 id={titleId} class="pdf-modal__title">{label}</h2>
+      <div class="pdf-modal__actions">
+        <a
+          class="pdf-modal__download"
+          href={src}
+          download={inferredName}
+          type="application/pdf"
+        >
+          {downloadLabel}
+        </a>
+        <button
+          type="button"
+          class="pdf-modal__close"
+          data-pdf-preview-close={id}
+          aria-label={closeLabel}
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              d="M6 6 L18 18 M18 6 L6 18"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <iframe
+      class="pdf-modal__iframe"
+      src={src}
+      title={label}
+      loading="lazy"
+    ></iframe>
+  </div>
+</dialog>
+
+<script>
+  function setupPdfPreviews() {
+    document.querySelectorAll<HTMLButtonElement>('[data-pdf-preview-open]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-pdf-preview-open');
+        const modal = id ? document.getElementById(id) : null;
+        if (modal instanceof HTMLDialogElement) modal.showModal();
+      });
+    });
+    document.querySelectorAll<HTMLButtonElement>('[data-pdf-preview-close]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-pdf-preview-close');
+        const modal = id ? document.getElementById(id) : null;
+        if (modal instanceof HTMLDialogElement) modal.close();
+      });
+    });
+    document.querySelectorAll<HTMLDialogElement>('dialog.pdf-modal').forEach((dialog) => {
+      dialog.addEventListener('click', (event) => {
+        // Close when clicking the backdrop (outside the container).
+        if (event.target === dialog) dialog.close();
+      });
+      dialog.addEventListener('close', () => {
+        // Clear the iframe so the next open starts fresh.
+        const iframe = dialog.querySelector<HTMLIFrameElement>('iframe.pdf-modal__iframe');
+        if (iframe) iframe.src = iframe.src;
+      });
+    });
+  }
+  setupPdfPreviews();
+</script>
+
+<style>
+  .pdf-actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3);
+    align-items: stretch;
+  }
+  .pdf-actions__download {
+    display: grid;
+    gap: 4px;
+    padding: var(--space-4) var(--space-6);
+    border: 2px solid var(--color-cyan);
+    border-radius: var(--radius-md);
+    background: linear-gradient(
+      90deg,
+      rgba(34, 211, 238, 0.08),
+      rgba(59, 130, 246, 0.08),
+      rgba(251, 191, 36, 0.08)
+    );
+    color: var(--color-fg);
+    text-decoration: none;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+  }
+  .pdf-actions__download:hover,
+  .pdf-actions__download:focus-visible {
+    transform: translateY(-1px);
+    border-color: var(--color-amber);
+  }
+  .pdf-actions__primary {
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+  .pdf-actions__secondary {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+  }
+  .pdf-actions__preview {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4) var(--space-6);
+    border: 1px solid var(--color-cyan);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-cyan);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      background-color 0.18s ease,
+      color 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .pdf-actions__preview:hover,
+  .pdf-actions__preview:focus-visible {
+    background: color-mix(in srgb, var(--color-cyan) 12%, transparent);
+    border-color: var(--color-amber);
+    color: var(--color-amber);
+  }
+
+  .pdf-modal {
+    padding: 0;
+    border: 1px solid #1f2937;
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    width: min(1100px, 95vw);
+    max-width: 1100px;
+    height: min(85vh, 800px);
+    max-height: 85vh;
+    overflow: hidden;
+  }
+  .pdf-modal::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+  }
+  .pdf-modal[open] {
+    animation: pdf-modal-in 0.18s ease-out;
+  }
+  @keyframes pdf-modal-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .pdf-modal__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .pdf-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-6);
+    border-bottom: 1px solid #1f2937;
+    flex: 0 0 auto;
+  }
+  .pdf-modal__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-fg);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pdf-modal__actions {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    flex: 0 0 auto;
+  }
+  .pdf-modal__download {
+    color: var(--color-cyan);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--color-cyan);
+    border-radius: var(--radius-md);
+    transition:
+      background-color 0.18s ease,
+      color 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .pdf-modal__download:hover,
+  .pdf-modal__download:focus-visible {
+    background: color-mix(in srgb, var(--color-cyan) 12%, transparent);
+    color: var(--color-amber);
+    border-color: var(--color-amber);
+  }
+  .pdf-modal__close {
+    background: transparent;
+    border: 1px solid var(--color-muted);
+    color: var(--color-muted);
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition:
+      background-color 0.18s ease,
+      color 0.18s ease,
+      border-color 0.18s ease;
+  }
+  .pdf-modal__close:hover,
+  .pdf-modal__close:focus-visible {
+    border-color: var(--color-amber);
+    color: var(--color-amber);
+    background: color-mix(in srgb, var(--color-amber) 12%, transparent);
+  }
+  .pdf-modal__iframe {
+    flex: 1 1 auto;
+    border: 0;
+    width: 100%;
+    background: #525659;
+  }
+
+  @media (max-width: 36rem) {
+    .pdf-actions {
+      grid-template-columns: 1fr;
+    }
+    .pdf-modal {
+      width: 100vw;
+      height: 100vh;
+      max-height: 100vh;
+      border-radius: 0;
+      border: 0;
+    }
+    .pdf-modal__header {
+      padding: var(--space-3) var(--space-4);
+    }
+    .pdf-modal__title {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pdf-modal[open] {
+      animation: none;
+    }
+  }
+</style>
