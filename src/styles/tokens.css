@@ -5,6 +5,17 @@
   --color-blue: #3b82f6;
   --color-amber: #fbbf24;
   --color-muted: #9ca3af;
+  --color-border-subtle: #1f2937;
+  --color-separator: #374151;
+  --color-on-whatsapp: #ffffff;
+  --color-iframe-bg: #525659;
+  --color-modal-backdrop: rgba(0, 0, 0, 0.75);
+  --color-cyan-rgb: 34 211 238;
+  --color-blue-rgb: 59 130 246;
+  --color-amber-rgb: 251 191 36;
+  --color-cyan-tint: rgba(34, 211, 238, 0.08);
+  --color-blue-tint: rgba(59, 130, 246, 0.08);
+  --color-amber-tint: rgba(251, 191, 36, 0.08);
   --gradient-text: linear-gradient(90deg, var(--color-cyan), var(--color-blue), var(--color-amber));
   --radius-md: 8px;
   --space-2: 0.5rem;
