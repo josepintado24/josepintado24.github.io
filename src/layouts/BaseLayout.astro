@@ -1,6 +1,6 @@
 ---
 import { getSite, getProfile } from '../lib/content';
-import { canonical, personJsonLd } from '../lib/seo';
+import { canonical, personJsonLd, websiteJsonLd, profilePageJsonLd, breadcrumbJsonLd, OG_IMAGE } from '../lib/seo';
 import { locales, type Locale } from '../lib/i18n';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -11,10 +11,17 @@ import '../styles/global.css';
 
 interface Props { locale: Locale; title: string; description: string; path?: string }
 const { locale, title, description, path = '/' } = Astro.props;
+const SITE_ORIGIN = 'https://josepintado24.github.io';
 const site = await getSite(locale);
 const profile = await getProfile(locale);
 const url = canonical(path, locale);
 const personLd = JSON.stringify(personJsonLd({ author: profile.name ?? site.author, linkedin: profile.linkedin, github: profile.github }));
+const websiteLd = JSON.stringify(websiteJsonLd());
+const profilePageLd = JSON.stringify(profilePageJsonLd(locale, { author: profile.name ?? site.author, linkedin: profile.linkedin, github: profile.github }));
+const breadcrumbLd = JSON.stringify(breadcrumbJsonLd(locale, [
+  { name: site.title, url: SITE_ORIGIN },
+  { name: locale.toUpperCase(), url: url },
+]));
 ---
 <!doctype html>
 <html lang={locale}>
@@ -30,8 +37,19 @@ const personLd = JSON.stringify(personJsonLd({ author: profile.name ?? site.auth
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
     <meta property="og:locale" content={locale} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={OG_IMAGE} />
+    <link rel="image_src" href={OG_IMAGE} />
     <script type="application/ld+json" set:html={personLd} />
+    <script type="application/ld+json" set:html={websiteLd} />
+    <script type="application/ld+json" set:html={profilePageLd} />
+    <script type="application/ld+json" set:html={breadcrumbLd} />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Saltar al contenido principal</a>

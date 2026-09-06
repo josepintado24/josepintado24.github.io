@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>OG · José Luis Pintado Vásquez</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #050505;
+    color: #f4f4f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    padding: 64px 80px 56px 80px;
+    position: relative;
+  }
+  /* Subtle cyan→blue→amber gradient halo in the background */
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(60% 80% at 12% 110%, rgba(34, 211, 238, 0.18), transparent 70%),
+      radial-gradient(60% 80% at 88% -10%, rgba(251, 191, 36, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .stack {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 36px;
+    height: 100%;
+  }
+  .mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    color: #22d3ee;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .mark::before {
+    content: "∞";
+    font-size: 1.4em;
+    line-height: 1;
+  }
+  .center {
+    display: grid;
+    gap: 24px;
+    align-content: center;
+  }
+  h1 {
+    font-size: 76px;
+    line-height: 1.04;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(90deg, #22d3ee 0%, #3b82f6 50%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    max-width: 920px;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 1.25;
+    color: #f4f4f5;
+    font-weight: 500;
+    max-width: 920px;
+  }
+  .tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .tag {
+    padding: 8px 16px;
+    border: 1px solid rgba(34, 211, 238, 0.5);
+    border-radius: 999px;
+    color: #9ca3af;
+    font-size: 18px;
+    background: rgba(34, 211, 238, 0.06);
+  }
+  .footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: #9ca3af;
+    font-size: 20px;
+  }
+  .url {
+    color: #22d3ee;
+    font-weight: 600;
+  }
+  .links { display: flex; gap: 24px; }
+  .links a { color: #9ca3af; text-decoration: none; }
+  .links a:hover { color: #fbbf24; }
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div class="mark">JLPintado</div>
+    <div class="center">
+      <h1>José Luis Pintado Vásquez</h1>
+      <h2>Desarrollador full-stack e-commerce y educador IT</h2>
+      <div class="tags">
+        <span class="tag">Adobe Commerce</span>
+        <span class="tag">Magento 2</span>
+        <span class="tag">PHP</span>
+        <span class="tag">React</span>
+        <span class="tag">Angular</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">WordPress</span>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="url">josepintado24.github.io</div>
+      <div class="links">
+        <a>GitHub</a>
+        <a>LinkedIn</a>
+        <a>WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

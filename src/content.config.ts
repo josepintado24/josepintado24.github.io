@@ -14,6 +14,7 @@ const profileSchema = z.object({
   phone: z.string(),
   linkedin: z.string().url(),
   github: z.string().url(),
+  website: z.string().url().optional(),
   cvPdf: z.string().optional(),
   cvLabel: z.string().optional(),
   cvDetail: z.string().optional(),

@@ -1,8 +1,9 @@
 ---
-interface Props { github: string; linkedin: string }
-const { github, linkedin } = Astro.props;
+interface Props { github: string; linkedin: string; website?: string }
+const { github, linkedin, website } = Astro.props;
 ---
 <ul class="social-links">
   <li><a href={github} rel="me noopener">GitHub</a></li>
   <li><a href={linkedin} rel="me noopener">LinkedIn</a></li>
+  {website && <li><a href={website} rel="me noopener">jlpintado.com</a></li>}
 </ul>
