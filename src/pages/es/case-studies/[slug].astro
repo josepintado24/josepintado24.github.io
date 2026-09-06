@@ -109,10 +109,13 @@ const jsonLd = {
         <h2 id="case-docs-heading">Documentos</h2>
         <ul class="case-study__documents-list">
           {detail.documents.map((doc) => (
-            <li>
-              <a class="cv-download" href={doc.url} download type="application/pdf" rel="noopener">
+            <li class="document-actions">
+              <a class="cv-download document-actions__primary" href={doc.url} download type="application/pdf" rel="noopener">
                 <span class="cv-download__label">{doc.label}</span>
                 <span class="cv-download__detail">PDF</span>
+              </a>
+              <a class="document-actions__preview" href={doc.url} target="_blank" rel="noopener" type="application/pdf">
+                Vista previa
               </a>
             </li>
           ))}
